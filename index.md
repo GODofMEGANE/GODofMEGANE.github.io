@@ -5,13 +5,14 @@
 <http://test>\
 
 # この下SAMPLE(見出し)\
+\#とかっていう文字も使えます!\
 <http://google.co.jp/>URLが貼れるよ!\
 [これもURL!](https://www.google.co.jp/)\
 `四角く囲む`\
 **太い**\
 _斜め_\
 ~~打ち消し~~
-線を引く\
+線を引く↓\
 ***
 1. リスト
 1. これで作れる
@@ -23,8 +24,16 @@ _斜め_\
 
 
 ```
-void tutorial(){
+string tutorial(){
 　return "コードを書ける!";
+}
+```
+```cpp:test.cpp
+int main(){
+    int a = 0;
+    if(a == 0){
+        cout << "色付きとファイル名" << endl;
+    }
 }
 ```
 
