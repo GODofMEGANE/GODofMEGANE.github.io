@@ -1,2 +1,3 @@
-# \(^o^)/
-## mitsuki本当に氏ね☆
+# MEGANEnoKAMISAMAのほーむぺーじ!!!
+[Twitter](https://twitter.com/GuchiyamaMEGANE)
+[AtCoder](https://atcoder.jp/users/MEGANEnoKAMISAMA)
