@@ -1,3 +1,3 @@
 # MEGANEnoKAMISAMAのほーむぺーじ!!!
-[![Twitter](Twitter_Social_Icon_Rounded_Square_Color.png)](https://twitter.com/GuchiyamaMEGANE)
+[![Twitter](images/twitter.png)](https://twitter.com/GuchiyamaMEGANE)
 [AtCoder](https://atcoder.jp/users/MEGANEnoKAMISAMA)
