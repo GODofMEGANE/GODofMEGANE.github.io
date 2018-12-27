@@ -1,3 +1,7 @@
+プログラムを表示させるやり方が違うのか、所々欠けています。  
+.cppファイルのダウンロード <a href="file/AtCoder.cpp" download>ここ</a>  
+
+
 #include <bits/stdc++.h>  
 #include <unistd.h>  
 #include \<random>  
