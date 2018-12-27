@@ -1,10 +1,10 @@
 プログラムを表示させるやり方が違うのか、所々欠けています。  
 .cppファイルのダウンロード <a href="files/AtCoder.cpp" download>ここ</a>  
 
-
+'''cpp
 #include <bits/stdc++.h>  
 #include <unistd.h>  
-#include \<random>  
+#include <random>  
      
 using namespace std;  
 typedef long long int LL;  
@@ -15,12 +15,12 @@ typedef pair<string,string> strpair;
 typedef pair<LL,LL> LLpair;  
 typedef pair<double,double> doublepair;  
 typedef pair<float,float> floatpair;  
-typedef vector\<int> intvector;  
-typedef vector\<bool> boolvector;  
-typedef vector\<string> strvector;  
-typedef vector\<LL> LLvector;  
-typedef vector\<double> doublevector;  
-typedef vector\<float> floatvector;  
+typedef vector<int> intvector;  
+typedef vector<bool> boolvector;  
+typedef vector<string> strvector;  
+typedef vector<LL> LLvector;  
+typedef vector<double> doublevector;  
+typedef vector<float> floatvector;  
 #define wait(sec) usleep((sec) * 1000000)  
 #define ED return 0;  
 #define TEST cout << "OK" << endl;  
@@ -38,3 +38,4 @@ int main(){
       cin.tie(0);  
       ios::sync_with_stdio(false);  
 }  
+'''
