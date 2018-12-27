@@ -1,4 +1,4 @@
-.cppファイルのダウンロード <a href="files/AtCoder.cpp" download> ここ </a>  
+.cppファイルのダウンロード <a href="files/AtCoder.cpp" download="AtCoder.cpp"> ここ </a>  
 
 ```cpp
 #include <bits/stdc++.h>  
