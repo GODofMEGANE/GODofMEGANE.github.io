@@ -1,7 +1,6 @@
-プログラムを表示させるやり方が違うのか、所々欠けています。  
 .cppファイルのダウンロード <a href="files/AtCoder.cpp" download>ここ</a>  
 
-'''cpp
+```cpp
 #include <bits/stdc++.h>  
 #include <unistd.h>  
 #include <random>  
@@ -38,4 +37,4 @@ int main(){
       cin.tie(0);  
       ios::sync_with_stdio(false);  
 }  
-'''
+```
