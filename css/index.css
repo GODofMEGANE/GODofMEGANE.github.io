@@ -55,6 +55,13 @@ h1{
     display: block;
 }
 
+#menu-game svg{
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    color: black;
+}
+
 #menu-game:hover{
     z-index: 2;
     background-color: darkred;
@@ -88,6 +95,13 @@ h1{
     display: block;
 }
 
+#menu-atcoder svg{
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    color: black;
+}
+
 #menu-link{
     z-index: 0;
     background-color: aqua;
@@ -100,3 +114,11 @@ h1{
     opacity: 0;
     transition: all 400ms 0s ease;
 }
+
+/*
+#menu-link svg{
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    color: black;
+}*/
