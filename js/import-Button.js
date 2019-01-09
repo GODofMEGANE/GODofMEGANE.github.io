@@ -16,12 +16,15 @@ function button() {
     else{
         button.style.backgroundColor = "yellow";
         button.style.opacity = "1";
-        game.style.top = "150px";
-        atcoder.style.top = "300px";
-        link.style.top = "450px";
+        game.style.top = "160px";
+        atcoder.style.top = "310px";
+        link.style.top = "460px";
         game.style.opacity = "1";
         atcoder.style.opacity = "1";
         link.style.opacity = "1";
+        game.rotate(30*Math.PI/180);
+        atcoder.rotate(30*Math.PI/180);
+        link.rotate(30*Math.PI/180);
     }
 }
 

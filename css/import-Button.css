@@ -3,8 +3,8 @@
     border-radius: 50%;
     opacity: 0.4;
     position: fixed;
-    top: 2px;
-    left: 2px;
+    top: 12px;
+    left: 12px;
     box-shadow: 8px 8px 16px darkblue;
     background-color: grey;
     width: 100px;
@@ -26,11 +26,12 @@
 }
 
 #menu-game{
+    transform: rotateZ(-30deg);
     z-index: 1;
     background-color: darkred;
     position: fixed;
-    top: 2px;
-    left: 2px;
+    top: 12px;
+    left: 12px;
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -57,8 +58,8 @@
     z-index: 2;
     background-color: darkred;
     position: fixed;
-    top: 2px;
-    left: 2px;
+    top: 12px;
+    left: 12px;
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -67,11 +68,12 @@
 }
 
 #menu-atcoder{
+    transform: rotateZ(-30deg);
     z-index: 1;
     background-color: orange;
     position: fixed;
-    top: 2px;
-    left: 2px;
+    top: 12px;
+    left: 12px;
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -95,11 +97,12 @@
 }
 
 #menu-link{
+    transform: rotateZ(-30deg);
     z-index: 0;
     background-color: aqua;
     position: fixed;
-    top: 2px;
-    left: 2px;
+    top: 12px;
+    left: 12px;
     border-radius: 50%;
     width: 100px;
     height: 100px;
