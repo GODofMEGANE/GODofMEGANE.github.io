@@ -2,29 +2,26 @@ function button() {
     let button = document.getElementById('button');
     let game = document.getElementById('menu-game');
     let atcoder = document.getElementById('menu-atcoder');
-    let link = document.getElementById('menu-link');
+    let introduction = document.getElementById('menu-introduction');
     if(button.style.backgroundColor==="yellow") {
         button.style.backgroundColor = "";
         button.style.opacity = "";
         game.style.top = "";
         atcoder.style.top = "";
-        link.style.top = "";
+        introduction.style.top = "";
         game.style.opacity = "";
         atcoder.style.opacity = "";
-        link.style.opacity = "";
+        introduction.style.opacity = "";
     }
     else{
         button.style.backgroundColor = "yellow";
         button.style.opacity = "1";
         game.style.top = "160px";
         atcoder.style.top = "310px";
-        link.style.top = "460px";
+        introduction.style.top = "460px";
         game.style.opacity = "1";
         atcoder.style.opacity = "1";
-        link.style.opacity = "1";
-        game.rotate(30*Math.PI/180);
-        atcoder.rotate(30*Math.PI/180);
-        link.rotate(30*Math.PI/180);
+        introduction.style.opacity = "1";
     }
 }
 
@@ -46,8 +43,11 @@ button_html.innerHTML = "<div id=\"button\"onclick=\"button()\">\n" +
     "        <path fill-rule=\"evenodd\" d=\"M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z\"></path>\n" +
     "    </svg></a>\n" +
     "</div>\n" +
-    "<div id=\"menu-link\"onclick=\"button()\">\n" +
-    "    <span>準備中</span>\n" +
+    "<div id=\"menu-introduction\">\n" +
+    "    <a href=\"/Introduction\">\n" +
+    "    <svg width=\"60\" height=\"60\" class=\"octicon octicon-person\" viewBox=\"0 0 12 16\" version=\"1.1\" style=\"position: absolute;top:22px;\" aria-hidden=\"true\">" +
+    "       <path fill-rule=\"evenodd\" d=\"M12 14.002a.998.998 0 0 1-.998.998H1.001A1 1 0 0 1 0 13.999V13c0-2.633 4-4 4-4s.229-.409 0-1c-.841-.62-.944-1.59-1-4 .173-2.413 1.867-3 3-3s2.827.586 3 3c-.056 2.41-.159 3.38-1 4-.229.59 0 1 0 1s4 1.367 4 4v1.002z\"></path>" +
+    "    </svg>" +
     "</div>";
 
 document.body.appendChild(button_html);

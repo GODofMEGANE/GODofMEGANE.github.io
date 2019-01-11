@@ -55,16 +55,7 @@
 }
 
 #menu-game:hover{
-    z-index: 2;
-    background-color: darkred;
-    position: fixed;
-    top: 12px;
-    left: 12px;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    opacity: 0;
-    transition: all 400ms 0s ease;
+    transform: rotateZ(0deg);
 }
 
 #menu-atcoder{
@@ -96,7 +87,11 @@
     transition: all 400ms 0s ease;
 }
 
-#menu-link{
+#menu-atcoder:hover{
+    transform: rotateZ(0deg);
+}
+
+#menu-introduction{
     transform: rotateZ(-30deg);
     z-index: 0;
     background-color: aqua;
@@ -110,11 +105,21 @@
     transition: all 400ms 0s ease;
 }
 
-/*
-#menu-link svg{
+#menu-introduction svg{
     position: fixed;
     top: 22px;
     left: 22px;
     color: black;
     transition: all 400ms 0s ease;
-}*/
+}
+
+#menu-introduction a{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: block;
+}
+
+#menu-introduction:hover{
+    transform: rotateZ(0deg);
+}
