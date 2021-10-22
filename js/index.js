@@ -1,5 +1,5 @@
-"use strict";
-var timer = 0; //ゲームタイマー(ms)
+'use strict';
+var timer = 0; //ゲームタイマー(ms)、50ms間隔で増加
 var im_screen; //仮想画面
 var size = {width:0, height:0};
 
@@ -10,17 +10,17 @@ const PLAYER_CHIP_SIZE = {row:4, col:4, size:32}; //プレイヤー画像の情�
 
 var map_data = new Array(); //マップデータ(csv)
 var map_event = new Array();; //マップイベント(csv)
-var player_data = {x:3, y:1, x_delay:0, y_delay:0, ng_delay:0, direction:0}; //プレイヤーの座標
-const GAME_SIZE = {width:600, height:400}; //仮想画面サイズ
+var player_data = {x:3, y:1, x_delay:0, y_delay:0, ng_delay:0, direction:0}; //プレイヤーの座標(x,y),アニメーション用タイマ変数(x_delay,y_delay,ng_delay),プレイヤーの向き(direction)
+const GAME_SIZE = {width:600, height:400}; //仮想画面サイズ(拡大するのでこの値は解像度になる)
 
 window.onload = function setup(){
-    map_chip.src = "images/tiles.png";
-    player_chip.src = "images/man.png";
-    im_screen = document.createElement("canvas");
+    map_chip.src = 'images/tiles.png';
+    player_chip.src = 'images/man.png';
+    im_screen = document.createElement('canvas');
     im_screen.width = GAME_SIZE.width;
     im_screen.height = GAME_SIZE.height;
     resize();
-    const request = new XMLHttpRequest();
+    const request = new XMLHttpRequest(); //csv解析
     request.addEventListener('load', (event) => {
         const response = event.target.responseText;
         response.split('\n').forEach(col => {
@@ -30,17 +30,16 @@ window.onload = function setup(){
         GAME_SIZE.width = MAP_CHIP_SIZE.size*map_data[0].length
         console.log(map_data);
     });
-    request.open('GET', "files/mapfiles/main.csv", true);
+    request.open('GET', 'files/mapfiles/main.csv', true);
     request.send();
-    window.addEventListener("resize", resize);
-    window.addEventListener("keydown", player);
+    window.addEventListener('resize', resize);
+    window.addEventListener('keydown', player);
     setInterval(loop, 50);
 }
 
+//50ms毎に実行
 function loop(){
     timer += 50;
-    console.log("x:"+player_data.x_delay);
-    console.log("y:"+player_data.y_delay);
     if(player_data.x_delay < 0){
         player_data.x -= 0.1;
         player_data.x_delay += 1;
@@ -63,6 +62,7 @@ function loop(){
     paint();
 }
 
+//矢印キーを取得した際の移動用
 function player(event){
     var key_code = event.keyCode;
     console.log("KEY is caught");
@@ -116,9 +116,10 @@ function player(event){
     }
 }
 
+//ウインドウサイズが変更された時用
 function resize(){
-    const canvas = document.getElementById("game");
-    const context = canvas.getContext("2d");
+    const canvas = document.getElementById('game');
+    const context = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     size.width = canvas.width;
@@ -133,8 +134,10 @@ function resize(){
     context.msImageSmoothingEnabled = false;
 }
 
+//仮想画面に描画
 function paint(){
-    const context = im_screen.getContext("2d");
+    const context = im_screen.getContext('2d');
+    //マップの描画
     for(let y = 0; y < map_data.length; y++){
         for(let x = 0; x < map_data[0].length; x++){
             let tile_id = map_data[y][x];
@@ -142,8 +145,9 @@ function paint(){
             context.drawImage(map_chip, map_chip_point.row, map_chip_point.col, MAP_CHIP_SIZE.size, MAP_CHIP_SIZE.size, x*MAP_CHIP_SIZE.size, y*MAP_CHIP_SIZE.size, MAP_CHIP_SIZE.size, MAP_CHIP_SIZE.size)
         }        
     }
-    var player_movement = Math.max(Math.abs(player_data.x_delay), Math.abs(player_data.y_delay));
 
+    //プレイヤーの描画
+    var player_movement = Math.max(Math.abs(player_data.x_delay), Math.abs(player_data.y_delay));
     if(player_movement > 7)
         player_movement = 1;
     else if(player_movement < 5 && player_movement > 1)
@@ -163,13 +167,14 @@ function paint(){
     }
     else context.drawImage(player_chip, player_movement*PLAYER_CHIP_SIZE.size, player_data.direction*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, player_data.x*PLAYER_CHIP_SIZE.size, player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
     
-    //context.font = "24px monospace"
+    //context.font = '24px monospace'
     //context.fillText(timer.toString() + "ms", 0, 64);
     printToScreen();
 }
 
+//仮想画面の内容を実際の画面に描画
 function printToScreen(){
-    const canvas = document.getElementById("game");
-    const context = canvas.getContext("2d");
+    const canvas = document.getElementById('game');
+    const context = canvas.getContext('2d');
     context.drawImage(im_screen, 0, 0, im_screen.width, im_screen.height, 0, 0, size.width, size.height);
 }
