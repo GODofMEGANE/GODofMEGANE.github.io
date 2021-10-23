@@ -12,6 +12,7 @@ var map_data = new Array(); //マップデータ(csv)
 var map_event = new Array();; //マップイベント(csv)
 var player_data = {x:3, y:1, x_delay:0, y_delay:0, ng_delay:0, direction:0}; //プレイヤーの座標(x,y),アニメーション用タイマ変数(x_delay,y_delay,ng_delay),プレイヤーの向き(direction)
 const GAME_SIZE = {width:600, height:400}; //仮想画面サイズ(拡大するのでこの値は解像度になる)
+const PRINT_OFFSET = 5; //端を塗りつぶして変にならないように
 
 window.onload = function setup(){
     map_chip.src = 'images/tiles.png';
@@ -137,12 +138,14 @@ function resize(){
 //仮想画面に描画
 function paint(){
     const context = im_screen.getContext('2d');
+    context.fillStyle = "white";
+    context.fillRect(0, 0, GAME_SIZE.width+PRINT_OFFSET*2, GAME_SIZE.height+PRINT_OFFSET*2);
     //マップの描画
     for(let y = 0; y < map_data.length; y++){
         for(let x = 0; x < map_data[0].length; x++){
             let tile_id = map_data[y][x];
             let map_chip_point = {row:parseInt(tile_id%MAP_CHIP_SIZE.col)*MAP_CHIP_SIZE.size, col:parseInt(tile_id/MAP_CHIP_SIZE.col)*MAP_CHIP_SIZE.size};
-            context.drawImage(map_chip, map_chip_point.row, map_chip_point.col, MAP_CHIP_SIZE.size, MAP_CHIP_SIZE.size, x*MAP_CHIP_SIZE.size, y*MAP_CHIP_SIZE.size, MAP_CHIP_SIZE.size, MAP_CHIP_SIZE.size)
+            context.drawImage(map_chip, map_chip_point.row, map_chip_point.col, MAP_CHIP_SIZE.size, MAP_CHIP_SIZE.size, PRINT_OFFSET+x*MAP_CHIP_SIZE.size, PRINT_OFFSET+y*MAP_CHIP_SIZE.size, MAP_CHIP_SIZE.size, MAP_CHIP_SIZE.size)
         }        
     }
 
@@ -157,15 +160,15 @@ function paint(){
 
     if(player_data.ng_delay > 0){
         if(player_data.ng_delay > 7)
-            context.drawImage(player_chip, 3*PLAYER_CHIP_SIZE.size, 1*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, player_data.x*PLAYER_CHIP_SIZE.size, player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
+            context.drawImage(player_chip, 3*PLAYER_CHIP_SIZE.size, 1*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.x*PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
         else if(player_data.ng_delay > 4)
-            context.drawImage(player_chip, 3*PLAYER_CHIP_SIZE.size, 0*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, player_data.x*PLAYER_CHIP_SIZE.size, player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
+            context.drawImage(player_chip, 3*PLAYER_CHIP_SIZE.size, 0*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.x*PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
         else if(player_data.ng_delay > 1)
-            context.drawImage(player_chip, 3*PLAYER_CHIP_SIZE.size, 2*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, player_data.x*PLAYER_CHIP_SIZE.size, player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
+            context.drawImage(player_chip, 3*PLAYER_CHIP_SIZE.size, 2*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.x*PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
         else
-            context.drawImage(player_chip, 3*PLAYER_CHIP_SIZE.size, 0*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, player_data.x*PLAYER_CHIP_SIZE.size, player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
+            context.drawImage(player_chip, 3*PLAYER_CHIP_SIZE.size, 0*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.x*PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
     }
-    else context.drawImage(player_chip, player_movement*PLAYER_CHIP_SIZE.size, player_data.direction*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, player_data.x*PLAYER_CHIP_SIZE.size, player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
+    else context.drawImage(player_chip, player_movement*PLAYER_CHIP_SIZE.size, player_data.direction*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.x*PLAYER_CHIP_SIZE.size, PRINT_OFFSET+player_data.y*PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size, PLAYER_CHIP_SIZE.size)
     
     //context.font = '24px monospace'
     //context.fillText(timer.toString() + "ms", 0, 64);
@@ -176,5 +179,12 @@ function paint(){
 function printToScreen(){
     const canvas = document.getElementById('game');
     const context = canvas.getContext('2d');
-    context.drawImage(im_screen, 0, 0, im_screen.width, im_screen.height, 0, 0, size.width, size.height);
+    //context.drawImage(im_screen, player.x*MAP_CHIP_SIZE.size, player.y*MAP_CHIP_SIZE.size, player.x*MAP_CHIP_SIZE.size+im_screen.width, player.y*MAP_CHIP_SIZE.size+im_screen.height, 0, 0, size.width, size.height);
+    context.drawImage(im_screen, 
+        player_data.x*MAP_CHIP_SIZE.size-im_screen.width/2, 
+        player_data.y*MAP_CHIP_SIZE.size-im_screen.height/2, 
+        im_screen.width, 
+        im_screen.height, 
+        0, 0, size.width, size.height
+    );
 }
