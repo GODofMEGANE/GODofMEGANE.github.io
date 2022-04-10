@@ -1,0 +1,21 @@
+baseURL = 'http://godofmegane.github.io/'
+canonifyurls = true
+publishDir = "docs"
+languageCode = 'ja'
+DefaultContentLanguage = 'ja'
+title = "GODofMEGANE's Blog"
+theme = 'hugo_theme_robust'
+
+[Params]
+enableHighlight = true
+
+[params.author]
+name = "GODofMEGANE"
+twitter = "https://twitter.com/god_of_megane"
+github = "https://github.com/GODofMEGANE"
+
+[taxonomies]
+tag = 'tags'
+category = 'categories'
+
+[markup.goldmark.renderer]
