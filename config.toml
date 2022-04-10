@@ -5,9 +5,14 @@ languageCode = 'ja'
 DefaultContentLanguage = 'ja'
 title = "GODofMEGANE's Blog"
 theme = 'hugo_theme_robust'
+googleAnalytics = 'UA-225430593-1'
+disqusShortname = 'www-godofmegane-com'
+enableGitInfo = true
 
 [Params]
-enableHighlight = true
+enableHighlight = false
+description = "音ゲー大好きメガネの神様のブログ"
+dateformat = "2006/01/02"
 
 [params.author]
 name = "GODofMEGANE"

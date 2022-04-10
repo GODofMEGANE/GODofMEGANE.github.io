@@ -2,17 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://godofmegane.github.io/categories/</loc>
+    <lastmod>2022-01-01T01:23:45+09:00</lastmod>
+  </url><url>
     <loc>http://godofmegane.github.io/</loc>
-    <lastmod>2022-04-10T04:24:18+09:00</lastmod>
+    <lastmod>2022-01-01T01:23:45+09:00</lastmod>
+  </url><url>
+    <loc>http://godofmegane.github.io/tags/pc/</loc>
+    <lastmod>2022-01-01T01:23:45+09:00</lastmod>
   </url><url>
     <loc>http://godofmegane.github.io/posts/</loc>
-    <lastmod>2022-04-10T04:24:18+09:00</lastmod>
-  </url><url>
-    <loc>http://godofmegane.github.io/posts/test/</loc>
-    <lastmod>2022-04-10T04:24:18+09:00</lastmod>
-  </url><url>
-    <loc>http://godofmegane.github.io/categories/</loc>
+    <lastmod>2022-01-01T01:23:45+09:00</lastmod>
   </url><url>
     <loc>http://godofmegane.github.io/tags/</loc>
+    <lastmod>2022-01-01T01:23:45+09:00</lastmod>
+  </url><url>
+    <loc>http://godofmegane.github.io/tags/web/</loc>
+    <lastmod>2022-01-01T01:23:45+09:00</lastmod>
+  </url><url>
+    <loc>http://godofmegane.github.io/posts/this_is_url/</loc>
+    <lastmod>2022-01-01T01:23:45+09:00</lastmod>
+  </url><url>
+    <loc>http://godofmegane.github.io/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</loc>
+    <lastmod>2022-01-01T01:23:45+09:00</lastmod>
   </url>
 </urlset>
