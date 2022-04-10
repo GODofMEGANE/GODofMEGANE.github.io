@@ -7,7 +7,7 @@ thumbnail: 'images/megane.png' #記事の一番上とプレビューに表示さ
 tags: ["PC", "Web"]
 categories: ["未分類"]
 
-draft: false #trueで下書き扱いになり表示されない
+draft: true #trueで下書き扱いになり表示されない
 ---
 # Markdown記法
 - もくじ
@@ -81,6 +81,7 @@ hoge += 100;
 ## リンク、画像
 [リンクはこう置く](https://www.google.co.jp/)  
 画像はこう置く  
+{{< img src="images/gal_o_man.png" w="150" h="100" >}}
 {{< img src="images/gal_o_man.png" w="150" h="100" caption="こんな感じで参照できる" href="https://www.irasutoya.com/2019/12/blog-post_866.html">}}
 
 ## 表
