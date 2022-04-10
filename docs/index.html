@@ -511,6 +511,8 @@ section.footer {
   background-position: center;
 }
 
+  
+
 
 
 
@@ -554,6 +556,55 @@ section.footer {
     
     
     
+    <div class="mcol c6">
+      <article class="li">
+        <a href="http://godofmegane.github.io/posts/start_hugo_20220410-132021/">
+          <div class="thumb thumb-2ae8bca683562a56eb8602553d481b50"></div>
+
+          <div class="inner">
+            <h2 class="title">Github pages&#43;Hugoでブログ作ってみた</h2>
+
+            <ul class="facts">
+              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2022-04-10T13:20:22JST">2022/04/10</time></li>
+              <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+              
+              
+            </ul>
+
+            <div class="summary">前からGODofMEGANE.github.ioでブログっぽいことをしようと思ってましたが、最近godofmegane.comドメインを買ったのでブログ作ってみました
+Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います     この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
+確認のために適当にhtmlファイルを作ってpushしてみるといいと思います
+リポジトリ名が ユーザー名.github.io なら
+ユーザー名.github.io&quot;
+それ以外なら
+ユーザー名.github.io/リポジトリ名
+でアクセスできます
+次にGoogle DomainsのリンクとGithub pagesを紐づけます   DNSの設定からカスタムレコードを作成します
+タイプはCNAMEにしましょう
+CNAMEの場合ホスト名を決める必要があるので、wwwとかにすると良いと思います
+データにはgithub pagesのURLを入力しておきます
+ここまで設定したらまたgithub pagesの設定画面へ戻りましょう   Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
+少し待てばGoogle Domainsで取得したドメインにアクセスするとgithub pagesが見られるようになるはずです！
+次にHugoを用いてブログを作っていきます
+Hugoのインストール 今回はWindowsでインストールを行います
+まず本体をこちらからダウンロードします
+Windowsを使用していて64bit版なら
+hugo_0.96.0_Windows-64bit.zip
+をダウンロードして解凍しましょう
+出てきた実行ファイルにはPATHを通しておきましょう
+envと検索し、環境変数を編集を開きます
+  そうしたら上の通り
+ ユーザー環境変数のPathを選択 編集(E)…をクリック 新規(N)…をクリック hugoの実行ファイルがあるフォルダを入力  を行いましょう
+実行ファイル自体ではなくて、実行ファイルのあるフォルダなので注意してください
+最後にOKを押して閉じましょう
+ここまで終わったらPowerShellを開き
+hugo と入力してみましょう   上記のような結果になればOKです
+ 用語 &lsquo;hugo&rsquo; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。</div>
+          </div>
+        </a>
+      </article>
+    </div>
+    
 
   </div>
 </div>
@@ -569,12 +620,55 @@ section.footer {
   <header>LATESTS</header>
   <div class="articles sm">
     
+    <article class="lism">
+  <a href="http://godofmegane.github.io/posts/start_hugo_20220410-132021/">
+    <div class="thumb thumb-2ae8bca683562a56eb8602553d481b50"></div>
+
+    <div class="inner">
+      <div class="title">Github pages&#43;Hugoでブログ作ってみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="10007-04-10T13:20:22JST">2022/04/10</time></li>
+        
+        <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+        
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+    
   </div>
 </section>
 
             
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <ul class="terms">
+    
+    <li><a href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3">pc関連 <span class="count">(1)</span></a></li>
+    
+  </ul>
+</section>
+
+
 
             
+<section class="sidebar">
+  <header>TAGS</header>
+  <ul class="terms">
+    
+    <li><a href="http://godofmegane.github.io/tags/pc">pc <span class="count">(1)</span></a></li>
+    
+    <li><a href="http://godofmegane.github.io/tags/web">web <span class="count">(1)</span></a></li>
+    
+  </ul>
+</section>
+
+
 
           </aside>
         </div>

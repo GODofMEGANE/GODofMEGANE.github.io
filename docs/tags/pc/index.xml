@@ -6,30 +6,42 @@
     <description>Recent content in PC on GODofMEGANE&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 01 Jan 2022 01:23:45 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/tags/pc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 13:20:22 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/tags/pc/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>タイトル</title>
-      <link>http://godofmegane.github.io/posts/this_is_url/</link>
-      <pubDate>Sat, 01 Jan 2022 01:23:45 +0900</pubDate>
+      <title>Github pages&#43;Hugoでブログ作ってみた</title>
+      <link>http://godofmegane.github.io/posts/start_hugo_20220410-132021/</link>
+      <pubDate>Sun, 10 Apr 2022 13:20:22 +0900</pubDate>
       
-      <guid>http://godofmegane.github.io/posts/this_is_url/</guid>
-      <description>Markdown記法  もくじ  改行のしかた 見出しの書き方 修飾文字 リストの作り方 引用 コードブロック リンク、画像 表    改行のしかた これだと 改行されない
-スペース2個で改行される
-見出しの書き方 見出し1 あああ
-見出し2 いいい
-見出し3 ううう
-修飾文字 アスタリスクで囲めば強調
-アンダースコアでもOK
-二つで囲めば更に強調
-こちらも同様
-三つで囲むと
-最強になります
-チルダ二つで取り消し線
-リストの作り方  リスト  ネストも可  番号付きで リストできる 全部1.でOK   ネスト   リスト リスト  引用  引用は
-こう書ける
- 二重引用
-  コードブロック コードなどは$ echo &amp;quot;Surround with back quotation&amp;quot;
-int hoge = 0; hoge += 100; int hoge = 0; hoge += 100; リンク、画像 リンクはこう置く</description>
+      <guid>http://godofmegane.github.io/posts/start_hugo_20220410-132021/</guid>
+      <description>前からGODofMEGANE.github.ioでブログっぽいことをしようと思ってましたが、最近godofmegane.comドメインを買ったのでブログ作ってみました
+Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います     この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
+確認のために適当にhtmlファイルを作ってpushしてみるといいと思います
+リポジトリ名が ユーザー名.github.io なら
+ユーザー名.github.io&amp;quot;
+それ以外なら
+ユーザー名.github.io/リポジトリ名
+でアクセスできます
+次にGoogle DomainsのリンクとGithub pagesを紐づけます   DNSの設定からカスタムレコードを作成します
+タイプはCNAMEにしましょう
+CNAMEの場合ホスト名を決める必要があるので、wwwとかにすると良いと思います
+データにはgithub pagesのURLを入力しておきます
+ここまで設定したらまたgithub pagesの設定画面へ戻りましょう   Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
+少し待てばGoogle Domainsで取得したドメインにアクセスするとgithub pagesが見られるようになるはずです！
+次にHugoを用いてブログを作っていきます
+Hugoのインストール 今回はWindowsでインストールを行います
+まず本体をこちらからダウンロードします
+Windowsを使用していて64bit版なら
+hugo_0.96.0_Windows-64bit.zip
+をダウンロードして解凍しましょう
+出てきた実行ファイルにはPATHを通しておきましょう
+envと検索し、環境変数を編集を開きます
+  そうしたら上の通り
+ ユーザー環境変数のPathを選択 編集(E)…をクリック 新規(N)…をクリック hugoの実行ファイルがあるフォルダを入力  を行いましょう
+実行ファイル自体ではなくて、実行ファイルのあるフォルダなので注意してください
+最後にOKを押して閉じましょう
+ここまで終わったらPowerShellを開き
+hugo と入力してみましょう   上記のような結果になればOKです
+ 用語 &amp;lsquo;hugo&amp;rsquo; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。</description>
     </item>
     
   </channel>

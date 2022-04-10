@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GODofMEGANE&#39;s Blog</title>
-    <link>http://godofmegane.github.io/</link>
-    <description>Recent content on GODofMEGANE&#39;s Blog</description>
+    <title>PC関連 on GODofMEGANE&#39;s Blog</title>
+    <link>http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3/</link>
+    <description>Recent content in PC関連 on GODofMEGANE&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 10 Apr 2022 13:20:22 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 13:20:22 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github pages&#43;Hugoでブログ作ってみた</title>
       <link>http://godofmegane.github.io/posts/start_hugo_20220410-132021/</link>
