@@ -14,18 +14,18 @@
       
       <guid>http://godofmegane.github.io/posts/start_hugo_20220410-132021/</guid>
       <description>前からGODofMEGANE.github.ioでブログっぽいことをしようと思ってましたが、最近godofmegane.comドメインを買ったのでブログ作ってみました
-Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います     この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
+Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
 確認のために適当にhtmlファイルを作ってpushしてみるといいと思います
 リポジトリ名が ユーザー名.github.io なら
-ユーザー名.github.io&amp;quot;
+ユーザー名.github.io
 それ以外なら
 ユーザー名.github.io/リポジトリ名
 でアクセスできます
-次にGoogle DomainsのリンクとGithub pagesを紐づけます   DNSの設定からカスタムレコードを作成します
+次にGoogle DomainsのリンクとGithub pagesを紐づけます DNSの設定からカスタムレコードを作成します
 タイプはCNAMEにしましょう
 CNAMEの場合ホスト名を決める必要があるので、wwwとかにすると良いと思います
 データにはgithub pagesのURLを入力しておきます
-ここまで設定したらまたgithub pagesの設定画面へ戻りましょう   Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
+ここまで設定したらまたgithub pagesの設定画面へ戻りましょう Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
 少し待てばGoogle Domainsで取得したドメインにアクセスするとgithub pagesが見られるようになるはずです！
 次にHugoを用いてブログを作っていきます
 Hugoのインストール 今回はWindowsでインストールを行います
@@ -35,13 +35,12 @@ hugo_0.96.0_Windows-64bit.zip
 をダウンロードして解凍しましょう
 出てきた実行ファイルにはPATHを通しておきましょう
 envと検索し、環境変数を編集を開きます
-  そうしたら上の通り
+そうしたら上の通り
  ユーザー環境変数のPathを選択 編集(E)…をクリック 新規(N)…をクリック hugoの実行ファイルがあるフォルダを入力  を行いましょう
 実行ファイル自体ではなくて、実行ファイルのあるフォルダなので注意してください
 最後にOKを押して閉じましょう
 ここまで終わったらPowerShellを開き
-hugo と入力してみましょう   上記のような結果になればOKです
- 用語 &amp;lsquo;hugo&amp;rsquo; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。</description>
+hugo と入力してみましょう 上記のような結果になればOKです</description>
     </item>
     
   </channel>
