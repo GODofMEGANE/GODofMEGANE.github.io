@@ -513,6 +513,8 @@ section.footer {
 
   
 
+  
+
 
 
 
@@ -555,6 +557,50 @@ section.footer {
     
     
     
+    
+    <div class="mcol c6">
+      <article class="li">
+        <a href="http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/">
+          <div class="thumb thumb-500c26134d650abf1f11d9d200271e53"></div>
+
+          <div class="inner">
+            <h2 class="title">Minecraft ForgeのModを作る</h2>
+
+            <ul class="facts">
+              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2022-05-21T19:22:39JST">2022/05/21</time></li>
+              <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+              
+              
+            </ul>
+
+            <div class="summary">MinecraftのModdingを始めるにあたり色々と詰まった場所が多かったので忘備録です
+環境構築については記事が溢れているのでコーディング関連のみメモっときます
+1.8.9で作ったのでそれ以外だとちょっと違うかもです
+LOGの出力 public static final Logger logger = LogManager.getLogger(ExampleMod.MODID);ExampleMod.logger.info(&#34;HelloWorld&#34;); infoの他にもdebug，warn，error，fatal等が使えるらしいです
+出力されるLOGはマイクラのランチャーの設定から，出力ログを開くを有効にしておくと確認できます
+Event関連 チャットを受け取った時に実行する関数みたいなのを作る場合はSubScribeEventというものを使います
+まずinit関数の中にMinecraftForge.EVENT_BUS.register(this);と書いておきます
+そして例えばチャットを受け取った際に実行される関数の場合，
+@SubscribeEventpublic void onChat(final ClientChatReceivedEvent event){} のようにすることでイベントを登録することができます
+イベントは引数で決まっているので関数名は何でもOKです
+この際に引数になっているevent変数からイベントによって色々な引数を取ることができます
+onChat関数の場合，event.message.getUnformattedText()でチャットの内容が取れたりします
+イベントはnet.minecraftforge.eventパッケージに入っています
+調べた感じイベントを纏めてるサイトは無かったのでその都度調べるほうがいいかもです
+難読化 ゲームから情報を取りたい!みたいになった時に，ゲーム内のクラスが難読化されていてとてもわかりずらいです
+例えばホットバーの上に出てくる文字列を取得する場合は
+(String) ReflectionHelper.findField(GuiIngame.class, &#34;recordPlaying&#34;, &#34;field_73838_g&#34;).get(Minecraft.getMinecraft().ingameGUI); みたいになります
+この中のfield_73838_gが難読化されたクラス名です
+ここに纏められています
+レンダリング 文字列のレンダリングは以下のようにするとできます
+public void renderOverlay(RenderGameOverlayEvent event) {FontRenderer fRender = Minecraft.getMinecraft().fontRendererObj;fRender.drawStringWithShadow(&#34;HelloWorld&#34;, 5, 10, 0);} drawStringWithShadowの引数は文字列，x，y，color(RGBを10進数に変換)です
+しかしこのままだとHPの部分とかが凄い色になったりしてヤバくなります
+解決策は
+public void renderOverlay(RenderGameOverlayEvent.Post event) {if(event.type == RenderGameOverlayEvent.ElementType.ALL){FontRenderer fRender = Minecraft.</div>
+          </div>
+        </a>
+      </article>
+    </div>
     
     <div class="mcol c6">
       <article class="li">
@@ -621,6 +667,27 @@ hugo と入力してみましょう 上記のような結果になればOKで�
   <div class="articles sm">
     
     <article class="lism">
+  <a href="http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/">
+    <div class="thumb thumb-500c26134d650abf1f11d9d200271e53"></div>
+
+    <div class="inner">
+      <div class="title">Minecraft ForgeのModを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="21007-05-21T19:22:39JST">2022/05/21</time></li>
+        
+        <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+        
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+    
+    <article class="lism">
   <a href="http://godofmegane.github.io/posts/start_hugo_20220410-132021/">
     <div class="thumb thumb-2ae8bca683562a56eb8602553d481b50"></div>
 
@@ -649,7 +716,7 @@ hugo と入力してみましょう 上記のような結果になればOKで�
   <header>CATEGORIES</header>
   <ul class="terms">
     
-    <li><a href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3">pc関連 <span class="count">(1)</span></a></li>
+    <li><a href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3">pc関連 <span class="count">(2)</span></a></li>
     
   </ul>
 </section>
@@ -661,7 +728,9 @@ hugo と入力してみましょう 上記のような結果になればOKで�
   <header>TAGS</header>
   <ul class="terms">
     
-    <li><a href="http://godofmegane.github.io/tags/pc">pc <span class="count">(1)</span></a></li>
+    <li><a href="http://godofmegane.github.io/tags/pc">pc <span class="count">(2)</span></a></li>
+    
+    <li><a href="http://godofmegane.github.io/tags/java">java <span class="count">(1)</span></a></li>
     
     <li><a href="http://godofmegane.github.io/tags/web">web <span class="count">(1)</span></a></li>
     

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>PC関連 on GODofMEGANE&#39;s Blog</title>
-    <link>http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3/</link>
-    <description>Recent content in PC関連 on GODofMEGANE&#39;s Blog</description>
+    <title>Java on GODofMEGANE&#39;s Blog</title>
+    <link>http://godofmegane.github.io/tags/java/</link>
+    <description>Recent content in Java on GODofMEGANE&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 21 May 2022 19:22:39 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 May 2022 19:22:39 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Minecraft ForgeのModを作る</title>
       <link>http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/</link>
@@ -37,42 +37,6 @@ public void renderOverlay(RenderGameOverlayEvent event) {FontRenderer fRender =
 しかしこのままだとHPの部分とかが凄い色になったりしてヤバくなります
 解決策は
 public void renderOverlay(RenderGameOverlayEvent.Post event) {if(event.type == RenderGameOverlayEvent.ElementType.ALL){FontRenderer fRender = Minecraft.</description>
-    </item>
-    
-    <item>
-      <title>Github pages&#43;Hugoでブログ作ってみた</title>
-      <link>http://godofmegane.github.io/posts/start_hugo_20220410-132021/</link>
-      <pubDate>Sun, 10 Apr 2022 13:20:22 +0900</pubDate>
-      
-      <guid>http://godofmegane.github.io/posts/start_hugo_20220410-132021/</guid>
-      <description>前からGODofMEGANE.github.ioでブログっぽいことをしようと思ってましたが、最近godofmegane.comドメインを買ったのでブログ作ってみました
-Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
-確認のために適当にhtmlファイルを作ってpushしてみるといいと思います
-リポジトリ名が ユーザー名.github.io なら
-ユーザー名.github.io
-それ以外なら
-ユーザー名.github.io/リポジトリ名
-でアクセスできます
-次にGoogle DomainsのリンクとGithub pagesを紐づけます DNSの設定からカスタムレコードを作成します
-タイプはCNAMEにしましょう
-CNAMEの場合ホスト名を決める必要があるので、wwwとかにすると良いと思います
-データにはgithub pagesのURLを入力しておきます
-ここまで設定したらまたgithub pagesの設定画面へ戻りましょう Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
-少し待てばGoogle Domainsで取得したドメインにアクセスするとgithub pagesが見られるようになるはずです！
-次にHugoを用いてブログを作っていきます
-Hugoのインストール 今回はWindowsでインストールを行います
-まず本体をこちらからダウンロードします
-Windowsを使用していて64bit版なら
-hugo_0.96.0_Windows-64bit.zip
-をダウンロードして解凍しましょう
-出てきた実行ファイルにはPATHを通しておきましょう
-envと検索し、環境変数を編集を開きます
-そうしたら上の通り
- ユーザー環境変数のPathを選択 編集(E)…をクリック 新規(N)…をクリック hugoの実行ファイルがあるフォルダを入力  を行いましょう
-実行ファイル自体ではなくて、実行ファイルのあるフォルダなので注意してください
-最後にOKを押して閉じましょう
-ここまで終わったらPowerShellを開き
-hugo と入力してみましょう 上記のような結果になればOKです</description>
     </item>
     
   </channel>
