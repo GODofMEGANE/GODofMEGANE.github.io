@@ -3,7 +3,7 @@ title: "Minecraft ForgeのModを作る"
 slug: forge_modding_tutorial_20220521-192238
 date: 2022-05-21T19:22:39+09:00
 
-tags: ["PC", "Java"]
+tags: ["PC", "Java", "Minecraft"]
 categories: ["PC関連"]
 
 draft: false

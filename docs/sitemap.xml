@@ -2,29 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://godofmegane.github.io/tags/arduino/</loc>
+    <lastmod>2022-10-15T15:33:10+09:00</lastmod>
+  </url><url>
     <loc>http://godofmegane.github.io/categories/</loc>
-    <lastmod>2022-05-21T19:22:39+09:00</lastmod>
+    <lastmod>2022-10-15T15:33:10+09:00</lastmod>
+  </url><url>
+    <loc>http://godofmegane.github.io/posts/esp32-setup_20221015-153309/</loc>
+    <lastmod>2022-10-15T15:33:10+09:00</lastmod>
   </url><url>
     <loc>http://godofmegane.github.io/</loc>
-    <lastmod>2022-05-21T19:22:39+09:00</lastmod>
-  </url><url>
-    <loc>http://godofmegane.github.io/tags/java/</loc>
-    <lastmod>2022-05-21T19:22:39+09:00</lastmod>
-  </url><url>
-    <loc>http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/</loc>
-    <lastmod>2022-05-21T19:22:39+09:00</lastmod>
+    <lastmod>2022-10-15T15:33:10+09:00</lastmod>
   </url><url>
     <loc>http://godofmegane.github.io/tags/pc/</loc>
-    <lastmod>2022-05-21T19:22:39+09:00</lastmod>
+    <lastmod>2022-10-15T15:33:10+09:00</lastmod>
   </url><url>
     <loc>http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3/</loc>
-    <lastmod>2022-05-21T19:22:39+09:00</lastmod>
+    <lastmod>2022-10-15T15:33:10+09:00</lastmod>
   </url><url>
     <loc>http://godofmegane.github.io/posts/</loc>
-    <lastmod>2022-05-21T19:22:39+09:00</lastmod>
+    <lastmod>2022-10-15T15:33:10+09:00</lastmod>
   </url><url>
     <loc>http://godofmegane.github.io/tags/</loc>
-    <lastmod>2022-05-21T19:22:39+09:00</lastmod>
+    <lastmod>2022-10-15T15:33:10+09:00</lastmod>
+  </url><url>
+    <loc>http://godofmegane.github.io/tags/java/</loc>
+    <lastmod>2022-05-21T20:08:41+09:00</lastmod>
+  </url><url>
+    <loc>http://godofmegane.github.io/tags/minecraft/</loc>
+    <lastmod>2022-05-21T20:08:41+09:00</lastmod>
+  </url><url>
+    <loc>http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/</loc>
+    <lastmod>2022-05-21T20:08:41+09:00</lastmod>
   </url><url>
     <loc>http://godofmegane.github.io/posts/start_hugo_20220410-132021/</loc>
     <lastmod>2022-04-14T18:34:58+09:00</lastmod>

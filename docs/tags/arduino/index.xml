@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arduino on GODofMEGANE&#39;s Blog</title>
+    <link>http://godofmegane.github.io/tags/arduino/</link>
+    <description>Recent content in Arduino on GODofMEGANE&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 15 Oct 2022 15:33:10 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>esp32で出たエラーまとめ</title>
+      <link>http://godofmegane.github.io/posts/esp32-setup_20221015-153309/</link>
+      <pubDate>Sat, 15 Oct 2022 15:33:10 +0900</pubDate>
+      
+      <guid>http://godofmegane.github.io/posts/esp32-setup_20221015-153309/</guid>
+      <description>自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ
+東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです
+ ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました使用済：C:\Users\XXXXXX\AppData\Local\Arduino15\libraries\SD未使用：C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SD IDEのバージョンを上げたところ発生しました
+この場合，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにあるSDフォルダを削除してください
+ ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!
+その場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます
+  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです
+C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SDを削除したところ発生しました
+削除したSDフォルダを復元し，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにある別のSDフォルダを削除し直してください
+ 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....
+という表示が出た後に上記エラーが吐かれて止まります
+検証は通るが書き込みができなくなります
+ESP32が書き込みモードになっていないことが原因です
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます</description>
+    </item>
+    
+  </channel>
+</rss>

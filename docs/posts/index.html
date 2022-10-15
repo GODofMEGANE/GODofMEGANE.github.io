@@ -515,6 +515,8 @@ section.footer {
 
   
 
+  
+
 
 
 
@@ -561,6 +563,40 @@ section.footer {
     
     
     
+    
+    <div class="mcol c6">
+      <article class="li">
+        <a href="http://godofmegane.github.io/posts/esp32-setup_20221015-153309/">
+          <div class="thumb thumb-b1fa189a0029cf7a605f2023448d1236"></div>
+
+          <div class="inner">
+            <h2 class="title">esp32で出たエラーまとめ</h2>
+
+            <ul class="facts">
+              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2022-10-15T15:33:10JST">2022/10/15</time></li>
+              <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+              
+              
+            </ul>
+
+            <div class="summary">自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ
+東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです
+ ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました使用済：C:\Users\XXXXXX\AppData\Local\Arduino15\libraries\SD未使用：C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SD IDEのバージョンを上げたところ発生しました
+この場合，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにあるSDフォルダを削除してください
+ ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!
+その場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます
+  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです
+C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SDを削除したところ発生しました
+削除したSDフォルダを復元し，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにある別のSDフォルダを削除し直してください
+ 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....
+という表示が出た後に上記エラーが吐かれて止まります
+検証は通るが書き込みができなくなります
+ESP32が書き込みモードになっていないことが原因です
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます</div>
+          </div>
+        </a>
+      </article>
+    </div>
     
     <div class="mcol c6">
       <article class="li">
@@ -671,6 +707,27 @@ hugo と入力してみましょう 上記のような結果になればOKで�
   <div class="articles sm">
     
     <article class="lism">
+  <a href="http://godofmegane.github.io/posts/esp32-setup_20221015-153309/">
+    <div class="thumb thumb-b1fa189a0029cf7a605f2023448d1236"></div>
+
+    <div class="inner">
+      <div class="title">esp32で出たエラーまとめ</div>
+
+      <ul class="facts sm">
+        <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="15007-10-15T15:33:10JST">2022/10/15</time></li>
+        
+        <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+        
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+    
+    <article class="lism">
   <a href="http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/">
     <div class="thumb thumb-500c26134d650abf1f11d9d200271e53"></div>
 
@@ -720,7 +777,7 @@ hugo と入力してみましょう 上記のような結果になればOKで�
   <header>CATEGORIES</header>
   <ul class="terms">
     
-    <li><a href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3">pc関連 <span class="count">(2)</span></a></li>
+    <li><a href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3">pc関連 <span class="count">(3)</span></a></li>
     
   </ul>
 </section>
@@ -732,9 +789,13 @@ hugo と入力してみましょう 上記のような結果になればOKで�
   <header>TAGS</header>
   <ul class="terms">
     
-    <li><a href="http://godofmegane.github.io/tags/pc">pc <span class="count">(2)</span></a></li>
+    <li><a href="http://godofmegane.github.io/tags/pc">pc <span class="count">(3)</span></a></li>
+    
+    <li><a href="http://godofmegane.github.io/tags/arduino">arduino <span class="count">(1)</span></a></li>
     
     <li><a href="http://godofmegane.github.io/tags/java">java <span class="count">(1)</span></a></li>
+    
+    <li><a href="http://godofmegane.github.io/tags/minecraft">minecraft <span class="count">(1)</span></a></li>
     
     <li><a href="http://godofmegane.github.io/tags/web">web <span class="count">(1)</span></a></li>
     

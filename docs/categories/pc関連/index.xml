@@ -6,7 +6,29 @@
     <description>Recent content in PC関連 on GODofMEGANE&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 21 May 2022 19:22:39 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Oct 2022 15:33:10 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>esp32で出たエラーまとめ</title>
+      <link>http://godofmegane.github.io/posts/esp32-setup_20221015-153309/</link>
+      <pubDate>Sat, 15 Oct 2022 15:33:10 +0900</pubDate>
+      
+      <guid>http://godofmegane.github.io/posts/esp32-setup_20221015-153309/</guid>
+      <description>自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ
+東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです
+ ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました使用済：C:\Users\XXXXXX\AppData\Local\Arduino15\libraries\SD未使用：C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SD IDEのバージョンを上げたところ発生しました
+この場合，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにあるSDフォルダを削除してください
+ ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!
+その場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます
+  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです
+C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SDを削除したところ発生しました
+削除したSDフォルダを復元し，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにある別のSDフォルダを削除し直してください
+ 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....
+という表示が出た後に上記エラーが吐かれて止まります
+検証は通るが書き込みができなくなります
+ESP32が書き込みモードになっていないことが原因です
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます</description>
+    </item>
+    
     <item>
       <title>Minecraft ForgeのModを作る</title>
       <link>http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/</link>
@@ -46,18 +68,18 @@ public void renderOverlay(RenderGameOverlayEvent.Post event) {if(event.type == 
       
       <guid>http://godofmegane.github.io/posts/start_hugo_20220410-132021/</guid>
       <description>前からGODofMEGANE.github.ioでブログっぽいことをしようと思ってましたが、最近godofmegane.comドメインを買ったのでブログ作ってみました
-Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
+Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
 確認のために適当にhtmlファイルを作ってpushしてみるといいと思います
 リポジトリ名が ユーザー名.github.io なら
 ユーザー名.github.io
 それ以外なら
 ユーザー名.github.io/リポジトリ名
 でアクセスできます
-次にGoogle DomainsのリンクとGithub pagesを紐づけます DNSの設定からカスタムレコードを作成します
+次にGoogle DomainsのリンクとGithub pagesを紐づけます DNSの設定からカスタムレコードを作成します
 タイプはCNAMEにしましょう
 CNAMEの場合ホスト名を決める必要があるので、wwwとかにすると良いと思います
 データにはgithub pagesのURLを入力しておきます
-ここまで設定したらまたgithub pagesの設定画面へ戻りましょう Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
+ここまで設定したらまたgithub pagesの設定画面へ戻りましょう Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
 少し待てばGoogle Domainsで取得したドメインにアクセスするとgithub pagesが見られるようになるはずです！
 次にHugoを用いてブログを作っていきます
 Hugoのインストール 今回はWindowsでインストールを行います
@@ -67,12 +89,13 @@ hugo_0.96.0_Windows-64bit.zip
 をダウンロードして解凍しましょう
 出てきた実行ファイルにはPATHを通しておきましょう
 envと検索し、環境変数を編集を開きます
-そうしたら上の通り
+そうしたら上の通り
  ユーザー環境変数のPathを選択 編集(E)…をクリック 新規(N)…をクリック hugoの実行ファイルがあるフォルダを入力  を行いましょう
 実行ファイル自体ではなくて、実行ファイルのあるフォルダなので注意してください
 最後にOKを押して閉じましょう
 ここまで終わったらPowerShellを開き
-hugo と入力してみましょう 上記のような結果になればOKです</description>
+hugo と入力してみましょう 上記のような結果になればOKです
+ 用語 &amp;lsquo;hugo&amp;rsquo; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。</description>
     </item>
     
   </channel>

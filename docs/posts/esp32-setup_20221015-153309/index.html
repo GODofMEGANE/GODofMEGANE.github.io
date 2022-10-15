@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>esp32で出たエラーまとめ - GODofMEGANE&#39;s Blog</title>
+    <meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com"  crossorigin>
+<link rel="dns-prefetch preconnect" href="https://use.fontawesome.com"  crossorigin>
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.96.0" />
+
+<link rel="apple-touch-icon" href="http://godofmegane.github.io/images/logo.png">
+
+
+
+
+    
+<meta name="description" content="自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ
+東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです
+ ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました使用済：C:\Users\XXXXXX\AppData\Local\Arduino15\libraries\SD未使用：C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SD IDEのバージョンを上げたところ発生しました
+この場合，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにあるSDフォルダを削除してください
+ ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!
+その場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます
+  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです
+C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SDを削除したところ発生しました
+削除したSDフォルダを復元し，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにある別のSDフォルダを削除し直してください
+ 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....
+という表示が出た後に上記エラーが吐かれて止まります
+検証は通るが書き込みができなくなります
+ESP32が書き込みモードになっていないことが原因です
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます">
+
+<meta property="og:title" content="esp32で出たエラーまとめ - GODofMEGANE&#39;s Blog">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://godofmegane.github.io/posts/esp32-setup_20221015-153309/">
+<meta property="og:image" content="http://godofmegane.github.io/images/default.png">
+<meta property="og:site_name" content="GODofMEGANE&#39;s Blog">
+<meta property="og:description" content="自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ
+東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです
+ ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました使用済：C:\Users\XXXXXX\AppData\Local\Arduino15\libraries\SD未使用：C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SD IDEのバージョンを上げたところ発生しました
+この場合，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにあるSDフォルダを削除してください
+ ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!
+その場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます
+  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです
+C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SDを削除したところ発生しました
+削除したSDフォルダを復元し，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにある別のSDフォルダを削除し直してください
+ 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....
+という表示が出た後に上記エラーが吐かれて止まります
+検証は通るが書き込みができなくなります
+ESP32が書き込みモードになっていないことが原因です
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="GODofMEGANE&#39;s Blog">
+<meta name="twitter:url" content="http://godofmegane.github.io/posts/esp32-setup_20221015-153309/">
+<meta name="twitter:title" content="esp32で出たエラーまとめ - GODofMEGANE&#39;s Blog">
+<meta name="twitter:description" content="自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ
+東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです
+ ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました使用済：C:\Users\XXXXXX\AppData\Local\Arduino15\libraries\SD未使用：C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SD IDEのバージョンを上げたところ発生しました
+この場合，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにあるSDフォルダを削除してください
+ ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!
+その場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます
+  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです
+C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SDを削除したところ発生しました
+削除したSDフォルダを復元し，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにある別のSDフォルダを削除し直してください
+ 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....
+という表示が出た後に上記エラーが吐かれて止まります
+検証は通るが書き込みができなくなります
+ESP32が書き込みモードになっていないことが原因です
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます">
+<meta name="twitter:image" content="http://godofmegane.github.io/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"http:\/\/godofmegane.github.io\/"
+    },
+    "headline": "esp32で出たエラーまとめ-GODofMEGANE's Blog",
+    "image": {
+      "@type": "ImageObject",
+      "url": "http:\/\/godofmegane.github.io\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2022-10-15T15:33:10JST",
+    "dateModified": "2022-10-15T15:33:10JST",
+    "author": {
+      "@type": "Person",
+      "name": "GODofMEGANE's Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "GODofMEGANE's Blog",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http:\/\/godofmegane.github.io\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ\n東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです\n ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました\r使用済：C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\libraries\\SD\r未使用：C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\SD IDEのバージョンを上げたところ発生しました\nこの場合，C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\librariesにあるSDフォルダを削除してください\n ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!\nその場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます\n  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです\nC:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\SDを削除したところ発生しました\n削除したSDフォルダを復元し，C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\librariesにある別のSDフォルダを削除し直してください\n 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....\nという表示が出た後に上記エラーが吐かれて止まります\n検証は通るが書き込みができなくなります\nESP32が書き込みモードになっていないことが原因です\nConnectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます"
+  }
+</script>
+
+
+
+    <link rel="canonical" href="http://godofmegane.github.io/posts/esp32-setup_20221015-153309/">
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+    <style>
+
+  
+html {
+  font-size: 18px;
+  background-color: rgba(236, 239, 241, 0.5); }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px; } }
+
+body {
+  color: #333;
+  font-family: 'Roboto Slab','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',メイリオ,Meiryo,sans-serif;
+  font-feature-settings: "palt";
+  font-size: inherit;
+  line-height: 1rem;
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1rem;
+  margin: 0; }
+
+hr {
+  border: 0;
+  border-top: 1px dashed #cfd8dc;
+  margin: 1rem 0; }
+
+p {
+  margin: 0;
+  line-height: 1rem; }
+
+a {
+  color: #2196f3;
+  text-decoration: none;
+  transition-duration: .3s; }
+
+ul, ol {
+  margin: 0;
+  padding: 0; }
+
+table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto; }
+
+th, td {
+  font-size: .8rem;
+  padding: .5rem; }
+
+tr {
+  border-bottom: 1px dashed #ddd; }
+
+/* Layouts */
+main, aside {
+  display: block; }
+
+main {
+  padding: 1rem 0 3rem 0; }
+
+.l-container {
+  position: relative;
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1rem; }
+  .l-container.thin {
+    max-width: 44rem; }
+
+.l-header {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px rgba(63, 63, 68, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  padding: 1rem 0;
+  text-align: center; }
+  .l-header .description {
+    margin-top: .5rem;
+    font-size: .8rem; }
+
+.l-footer {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px rgba(63, 63, 68, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: .6rem;
+  font-weight: 700;
+  padding: 1rem 0; }
+
+.l-sidebar {
+  margin: -1rem 0; }
+
+@media (max-width: 768px) {
+  .l-sidebar {
+    margin-top: 4rem; } }
+
+.mrow {
+  margin: 0 -1rem;
+  overflow: hidden; }
+
+.mcol {
+  box-sizing: border-box;
+  float: left;
+  padding: 0 1rem; }
+
+.c6 {
+  width: 50%; }
+
+.c4 {
+  width: 33.26323833%; }
+
+.c8 {
+  width: 66.66666%; }
+
+@media (max-width: 768px) {
+  .mcol {
+    width: 100%;
+    float: none; } }
+
+.logo a {
+  font-size: 1.4rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  color: #333; }
+
+.articles {
+  margin: -1rem 0;
+  margin-bottom: 1rem; }
+
+.articles.sm {
+  margin: -.5rem 0;
+  margin-bottom: 0; }
+
+article {
+  border-radius: 4px;
+  overflow: hidden; }
+
+article.li {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px rgba(63, 63, 68, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  height: 20rem;
+  overflow: hidden;
+  margin: 1rem 0; }
+
+article.li > a {
+  display: block;
+  color: #333; }
+
+article.li .inner {
+  padding: 1rem; }
+
+article.li .thumb {
+  height: 8rem; }
+
+article.li .title {
+  color: #333;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin-bottom: .5rem; }
+
+article.li .summary {
+  font-size: .8rem;
+  height: 6rem;
+  overflow: hidden;
+  margin-top: 1rem; }
+
+article.li .summary::after {
+  content: '...'; }
+
+article.lism {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px rgba(63, 63, 68, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin: .5rem 0; }
+
+article.lism::after {
+  content: '';
+  display: block;
+  clear: both; }
+
+article.lism > a {
+  display: block;
+  color: #333; }
+
+article.lism .inner {
+  display: table-cell;
+  vertical-align: middle;
+  height: 5rem;
+  padding: 0 .75rem; }
+
+article.lism .thumb {
+  width: 5rem;
+  height: 5rem;
+  float: left; }
+
+article.lism .title {
+  font-weight: 700;
+  font-size: .8rem;
+  margin-bottom: .25rem; }
+
+article.sn {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px rgba(63, 63, 68, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem; }
+
+article.sn .thumb {
+  height: 20rem; }
+
+@media (max-width: 768px) {
+  article.sn .thumb {
+    height: 10rem; } }
+
+article.sn > .article-header,
+article.sn > .article-body,
+article.sn .article-footer {
+  padding: 2rem; }
+
+article.sn > .article-body {
+  padding: 0 2rem; }
+
+@media (max-width: 768px) {
+  article.sn > .article-header,
+  article.sn > .article-body,
+  article.sn .article-footer {
+    padding: 1rem; }
+  article.sn > .article-body {
+    padding: 0 1rem; } }
+
+article.sn > .article-header .title {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  margin-bottom: .5rem; }
+
+@media (max-width: 768px) {
+  article.sn > .article-header .title {
+    font-size: 1.4rem;
+    line-height: 1.5rem; } }
+
+article.sn > .article-header .facts {
+  margin-bottom: 1rem; }
+
+article.sn > .article-body {
+  margin-bottom: 1.5rem; }
+
+article.sn > .article-body h2 {
+  border-bottom: .25rem solid #333;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin: 1.5rem 0;
+  padding: .5rem 0; }
+
+article.sn > .article-body h3 {
+  border-left: .5rem solid #333;
+  line-height: 1.5rem;
+  margin: 1.5rem 0;
+  padding: .125rem .5rem; }
+
+article.sn > .article-body ul,
+article.sn > .article-body ol {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem; }
+
+article.sn > .article-body li {
+  padding-bottom: .5rem;
+  line-height: 1.5rem; }
+
+article.sn > .article-body li:last-child {
+  padding-bottom: 0; }
+
+article.sn > .article-body p {
+  margin: 1rem 0;
+  line-height: 1.5rem; }
+
+article.sn > .article-body strong,
+article.sn > .article-body em {
+  font-style: normal;
+  font-weight: 700; }
+
+article.sn > .article-body strong {
+  box-shadow: 0 -.5rem 0 0 #ffc107 inset; }
+
+article.sn > .article-body em {
+  color: #8bc34a; }
+
+article.sn > .article-body h2 code {
+  font-size: 1.1rem; }
+
+article.sn > .article-body h1 code, article.sn > .article-body h3 code, article.sn > .article-body h4 code, article.sn > .article-body h5 code, article.sn > .article-body h6 code {
+  font-size: .9rem; }
+
+article.sn > .article-body code, article.sn > .article-body pre {
+  font-family: Menlo, Consolas, monospace;
+  font-size: .7rem; }
+
+article.sn > .article-body pre {
+  background-color: #333;
+  color: #fff;
+  line-height: 1rem;
+  margin: 1.5rem -2rem;
+  overflow: auto; }
+
+@media (max-width: 768px) {
+  article.sn > .article-body pre {
+    margin: 1.5rem -1rem; } }
+
+article.sn > .article-body pre > code {
+  display: block;
+  padding: 1rem 2rem; }
+
+@media (max-width: 768px) {
+  article.sn > .article-body pre > code {
+    padding: 1rem; } }
+
+article.sn > .article-body p code, article.sn > .article-body h1 code, article.sn > .article-body h2 code, article.sn > .article-body h3 code, article.sn > .article-body h4 code, article.sn > .article-body h5 code, article.sn > .article-body h6 code, article.sn > .article-body li code {
+  background-color: #eceff1;
+  color: #333;
+  border-radius: 4px;
+  margin: 0 .25rem;
+  padding: .375rem;
+  white-space: nowrap; }
+
+article.sn > .article-body blockquote {
+  position: relative;
+  border-left: .25rem solid #333;
+  font-size: .8rem;
+  padding: .125rem 1rem;
+  margin: 1.5rem 0; }
+
+@media (max-width: 768px) {
+  article.sn > .article-body blockquote {
+    font-size: 1rem; } }
+
+article.sn > .article-body blockquote p {
+  margin: .5rem 0;
+  line-height: 1rem; }
+
+article.sn > .article-body figure {
+  margin: 1.5rem 0; }
+
+article.sn > .article-body img,
+article.sn > .article-body figure img,
+article.sn > .article-body figure amp-img {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  max-width: 100%;
+  height: 100%; }
+
+article.sn > .article-body figcaption {
+  color: #cfd8dc;
+  font-size: .8rem;
+  font-weight: 700;
+  margin-top: .5rem; }
+
+.facts li {
+  display: inline;
+  font-size: .8rem;
+  margin-right: 1rem; }
+
+.facts i {
+  color: #cfd8dc;
+  margin-right: .5em; }
+
+.facts.sm li {
+  font-size: .7rem; }
+
+section.sidebar {
+  margin: 2rem 0; }
+  section.sidebar > header {
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-align: center;
+    margin: 1.5rem 0; }
+
+section.footer {
+  margin: 1rem 0; }
+  section.footer > header {
+    font-size: .8rem;
+    margin: .5rem 0; }
+    section.footer > header::before {
+      content: "- "; }
+    section.footer > header a {
+      font-weight: 700;
+      color: #333;
+      text-decoration: underline; }
+
+.terms {
+  margin: -.25rem; }
+  .terms li {
+    display: inline-block; }
+  .terms a {
+    display: block;
+    float: left;
+    background-color: #333;
+    border-radius: 4px;
+    color: #fff;
+    font-size: .7rem;
+    margin: .25rem;
+    padding: 0 .75rem;
+    line-height: 1.75rem; }
+
+.paging {
+  text-align: center;
+  padding: 1rem 0; }
+  .paging a {
+    display: inline-block;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px rgba(63, 63, 68, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    color: #333;
+    padding: 0 1rem;
+    line-height: 3rem; }
+
+.page-title {
+  text-align: center;
+  margin: 1rem 0; }
+  .page-title::after {
+    content: '';
+    display: block;
+    border-bottom: .25rem solid #333;
+    width: 3rem;
+    margin: 1.5rem auto; }
+  .page-title > .title {
+    font-size: 1.2rem;
+    line-height: 1.5rem; }
+
+.share {
+  padding: 0; }
+  .share a {
+    display: inline-block;
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px rgba(63, 63, 68, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+    min-width: 1rem;
+    height: 2rem;
+    border-radius: 4px;
+    color: #333;
+    font-size: .8rem;
+    font-weight: 700;
+    line-height: 2rem;
+    text-align: center;
+    padding: 0 .5rem; }
+
+.adj article.lism {
+  margin-bottom: 1rem; }
+
+.adj header {
+  font-weight: 700;
+  font-size: .8rem; }
+
+.toc {
+  padding: 0 2rem;
+  margin: 1rem 0; }
+  .toc nav > ul {
+    background-color: #eceff1;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+    word-break: break-all;
+    list-style: none; }
+  .toc ul {
+    padding: 0; }
+    .toc ul ul {
+      padding-left: 1rem; }
+      .toc ul ul > li {
+        font-weight: 700;
+        margin: .5rem 0;
+        list-style-type: decimal; }
+      .toc ul ul ul {
+        padding-left: 1rem; }
+        .toc ul ul ul > li {
+          list-style-type: disc;
+          font-weight: 500; }
+  .toc li {
+    color: #90a4ae; }
+
+@media (max-width: 768px) {
+  .toc {
+    padding: 0 1rem; } }
+
+
+
+
+.thumb {
+  background-image: url("http://godofmegane.github.io/images/default.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+  
+
+  
+
+  
+
+
+
+
+
+    </style>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-225430593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-225430593-1');
+</script>
+
+  </head>
+  <body>
+    <header class="l-header">
+        <h1 class="logo">
+          <a href="http://godofmegane.github.io/">GODofMEGANE&#39;s Blog</a>
+        </h1>
+        
+        <span class="description">
+          音ゲー大好きメガネの神様のブログ
+        </span>
+        
+    </header>
+
+    <main>
+      <div class="l-container">
+        <div class="mrow">
+        <div class="mcol c8">
+          
+<article class="sn">
+
+  <div class="thumb thumb-b1fa189a0029cf7a605f2023448d1236"></div>
+
+  <header class="article-header">
+    <h1 class="title">esp32で出たエラーまとめ</h1>
+
+    <ul class="facts">
+      <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2022-10-15T15:33:10JST">2022/10/15</time></li>
+      
+      
+      <li><i class="fas fa-bookmark" aria-hidden="true"></i><a href="http://godofmegane.github.io/posts/">POSTS</a></li>
+      
+      
+      
+    </ul>
+
+    <aside class="share">
+  <a href="https://b.hatena.ne.jp/add?mode=confirm&url=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f&title=esp32%e3%81%a7%e5%87%ba%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%be%e3%81%a8%e3%82%81" title="はてなブックマーク" class="ht" target="_blank" rel="noopener nofollow">B!</a>
+  <a href="https://twitter.com/intent/tweet?url=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f&text=esp32%e3%81%a7%e5%87%ba%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%be%e3%81%a8%e3%82%81&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="noopener nofollow"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+  <a href="https://www.facebook.com/sharer.php?u=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f&t=esp32%e3%81%a7%e5%87%ba%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%be%e3%81%a8%e3%82%81" title="Facebookでシェア" class="fb" target="_blank" rel="noopener nofollow"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://getpocket.com/edit?url=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f&title=esp32%e3%81%a7%e5%87%ba%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%be%e3%81%a8%e3%82%81" title="Pocketに保存" class="pk" target="_blank" rel="noopener nofollow"><i class="fab fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="https://social-plugins.line.me/lineit/share?url=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f" title="LINEでシェア" class="ln" target="_blank" rel="noopener nofollow"><i class="fab fa-line" aria-hidden="true"></i></a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ<br>
+東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです</p>
+<hr>
+<h1 id="ライブラリ多重化">ライブラリ多重化</h1>
+<pre tabindex="0"><code>「SD.h」に対して複数のライブラリが見つかりました
+  使用済：C:\Users\XXXXXX\AppData\Local\Arduino15\libraries\SD
+  未使用：C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SD
+</code></pre><p>IDEのバージョンを上げたところ発生しました<br>
+この場合，<code>C:\Users\XXXXXX\AppData\Local\Arduino15\libraries</code>にあるSDフォルダを削除してください</p>
+<blockquote>
+<p>ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!<br>
+その場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます</p>
+</blockquote>
+<hr>
+<h1 id="ライブラリ多重化2">ライブラリ多重化2</h1>
+<pre tabindex="0"><code>#error Architecture or board not supported.
+</code></pre><p>SD.hエラーの後半部分が消えたエラーメッセージです<br>
+<code>C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SD</code>を削除したところ発生しました<br>
+削除したSDフォルダを復元し，<code>C:\Users\XXXXXX\AppData\Local\Arduino15\libraries</code>にある別のSDフォルダを削除し直してください</p>
+<hr>
+<h1 id="書き込みエラー">書き込みエラー</h1>
+<pre tabindex="0"><code>esp32: timed out waiting for packet header
+</code></pre><pre tabindex="0"><code>Failed to connect to ESP32: Invalid head of packet (0x2E)
+</code></pre><p><code>Connecting........_____....._____....._____....._____....._____.....</code><br>
+という表示が出た後に上記エラーが吐かれて止まります<br>
+検証は通るが書き込みができなくなります<br>
+ESP32が書き込みモードになっていないことが原因です<br>
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="https://b.hatena.ne.jp/add?mode=confirm&url=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f&title=esp32%e3%81%a7%e5%87%ba%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%be%e3%81%a8%e3%82%81" title="はてなブックマーク" class="ht" target="_blank" rel="noopener nofollow">B!</a>
+  <a href="https://twitter.com/intent/tweet?url=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f&text=esp32%e3%81%a7%e5%87%ba%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%be%e3%81%a8%e3%82%81&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="noopener nofollow"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+  <a href="https://www.facebook.com/sharer.php?u=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f&t=esp32%e3%81%a7%e5%87%ba%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%be%e3%81%a8%e3%82%81" title="Facebookでシェア" class="fb" target="_blank" rel="noopener nofollow"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://getpocket.com/edit?url=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f&title=esp32%e3%81%a7%e5%87%ba%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%be%e3%81%a8%e3%82%81" title="Pocketに保存" class="pk" target="_blank" rel="noopener nofollow"><i class="fab fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="https://social-plugins.line.me/lineit/share?url=http%3a%2f%2fgodofmegane.github.io%2fposts%2fesp32-setup_20221015-153309%2f" title="LINEでシェア" class="ln" target="_blank" rel="noopener nofollow"><i class="fab fa-line" aria-hidden="true"></i></a>
+</aside>
+
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="http://godofmegane.github.io/categories/">CATEGORIES</a>
+      </header>
+      <ul class="terms">
+        
+        <li><a href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3/">PC関連</a></li>
+        
+      </ul>
+    </section>
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="http://godofmegane.github.io/tags/">TAGS</a>
+      </header>
+      <ul class="terms">
+        
+        <li><a href="http://godofmegane.github.io/tags/pc/">PC</a></li>
+        
+        <li><a href="http://godofmegane.github.io/tags/arduino/">Arduino</a></li>
+        
+      </ul>
+    </section>
+    
+    
+  </footer>
+
+</article>
+
+
+<div class="adj mrow">
+  <div class="mcol c6">
+    <header>Next Article</header>
+    
+  </div>
+  <div class="mcol c6">
+    <header>Previous Article</header>
+    
+    <article class="lism">
+  <a href="http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/">
+    <div class="thumb thumb-500c26134d650abf1f11d9d200271e53"></div>
+
+    <div class="inner">
+      <div class="title">Minecraft ForgeのModを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="21007-05-21T19:22:39JST">2022/05/21</time></li>
+        
+        <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+        
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+    
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "www-godofmegane-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+        <div class="mcol c4">
+          <aside class="l-sidebar">
+            
+
+            <section class="sidebar">
+  <header>LATESTS</header>
+  <div class="articles sm">
+    
+    <article class="lism">
+  <a href="http://godofmegane.github.io/posts/esp32-setup_20221015-153309/">
+    <div class="thumb thumb-b1fa189a0029cf7a605f2023448d1236"></div>
+
+    <div class="inner">
+      <div class="title">esp32で出たエラーまとめ</div>
+
+      <ul class="facts sm">
+        <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="15007-10-15T15:33:10JST">2022/10/15</time></li>
+        
+        <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+        
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+    
+    <article class="lism">
+  <a href="http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/">
+    <div class="thumb thumb-500c26134d650abf1f11d9d200271e53"></div>
+
+    <div class="inner">
+      <div class="title">Minecraft ForgeのModを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="21007-05-21T19:22:39JST">2022/05/21</time></li>
+        
+        <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+        
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+    
+    <article class="lism">
+  <a href="http://godofmegane.github.io/posts/start_hugo_20220410-132021/">
+    <div class="thumb thumb-2ae8bca683562a56eb8602553d481b50"></div>
+
+    <div class="inner">
+      <div class="title">Github pages&#43;Hugoでブログ作ってみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="10007-04-10T13:20:22JST">2022/04/10</time></li>
+        
+        <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+        
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+    
+  </div>
+</section>
+
+            
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <ul class="terms">
+    
+    <li><a href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3">pc関連 <span class="count">(3)</span></a></li>
+    
+  </ul>
+</section>
+
+
+
+            
+<section class="sidebar">
+  <header>TAGS</header>
+  <ul class="terms">
+    
+    <li><a href="http://godofmegane.github.io/tags/pc">pc <span class="count">(3)</span></a></li>
+    
+    <li><a href="http://godofmegane.github.io/tags/arduino">arduino <span class="count">(1)</span></a></li>
+    
+    <li><a href="http://godofmegane.github.io/tags/java">java <span class="count">(1)</span></a></li>
+    
+    <li><a href="http://godofmegane.github.io/tags/minecraft">minecraft <span class="count">(1)</span></a></li>
+    
+    <li><a href="http://godofmegane.github.io/tags/web">web <span class="count">(1)</span></a></li>
+    
+  </ul>
+</section>
+
+
+
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p><span class="h-logo">&copy; GODofMEGANE&#39;s Blog</span></p>
+        <aside>
+          <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+          <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+      </div>
+    </footer>
+
+    
+  </body>
+</html>
+

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>PC - GODofMEGANE&#39;s Blog</title>
+    <title>Minecraft - GODofMEGANE&#39;s Blog</title>
     <meta name="pinterest" content="nopin">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com"  crossorigin>
@@ -14,13 +14,13 @@
 <link rel="apple-touch-icon" href="http://godofmegane.github.io/images/logo.png">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://godofmegane.github.io/tags/pc/index.xml" title="GODofMEGANE&#39;s Blog">
+<link rel="alternate" type="application/rss+xml" href="http://godofmegane.github.io/tags/minecraft/index.xml" title="GODofMEGANE&#39;s Blog">
 
 
 
     
 
-    <link rel="canonical" href="http://godofmegane.github.io/tags/pc/">
+    <link rel="canonical" href="http://godofmegane.github.io/tags/minecraft/">
 
     
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
@@ -553,7 +553,7 @@ section.footer {
           
 
 <header class="page-title">
-  <h1 class="title">PC</h1>
+  <h1 class="title">Minecraft</h1>
 </header>
 
 
@@ -563,40 +563,6 @@ section.footer {
     
     
     
-    
-    <div class="mcol c6">
-      <article class="li">
-        <a href="http://godofmegane.github.io/posts/esp32-setup_20221015-153309/">
-          <div class="thumb thumb-b1fa189a0029cf7a605f2023448d1236"></div>
-
-          <div class="inner">
-            <h2 class="title">esp32で出たエラーまとめ</h2>
-
-            <ul class="facts">
-              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2022-10-15T15:33:10JST">2022/10/15</time></li>
-              <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
-              
-              
-            </ul>
-
-            <div class="summary">自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ
-東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです
- ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました使用済：C:\Users\XXXXXX\AppData\Local\Arduino15\libraries\SD未使用：C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SD IDEのバージョンを上げたところ発生しました
-この場合，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにあるSDフォルダを削除してください
- ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!
-その場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます
-  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです
-C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libraries\SDを削除したところ発生しました
-削除したSDフォルダを復元し，C:\Users\XXXXXX\AppData\Local\Arduino15\librariesにある別のSDフォルダを削除し直してください
- 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....
-という表示が出た後に上記エラーが吐かれて止まります
-検証は通るが書き込みができなくなります
-ESP32が書き込みモードになっていないことが原因です
-Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます</div>
-          </div>
-        </a>
-      </article>
-    </div>
     
     <div class="mcol c6">
       <article class="li">
@@ -637,55 +603,6 @@ public void renderOverlay(RenderGameOverlayEvent event) {FontRenderer fRender =
 しかしこのままだとHPの部分とかが凄い色になったりしてヤバくなります
 解決策は
 public void renderOverlay(RenderGameOverlayEvent.Post event) {if(event.type == RenderGameOverlayEvent.ElementType.ALL){FontRenderer fRender = Minecraft.</div>
-          </div>
-        </a>
-      </article>
-    </div>
-    
-    <div class="mcol c6">
-      <article class="li">
-        <a href="http://godofmegane.github.io/posts/start_hugo_20220410-132021/">
-          <div class="thumb thumb-2ae8bca683562a56eb8602553d481b50"></div>
-
-          <div class="inner">
-            <h2 class="title">Github pages&#43;Hugoでブログ作ってみた</h2>
-
-            <ul class="facts">
-              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2022-04-10T13:20:22JST">2022/04/10</time></li>
-              <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
-              
-              
-            </ul>
-
-            <div class="summary">前からGODofMEGANE.github.ioでブログっぽいことをしようと思ってましたが、最近godofmegane.comドメインを買ったのでブログ作ってみました
-Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
-確認のために適当にhtmlファイルを作ってpushしてみるといいと思います
-リポジトリ名が ユーザー名.github.io なら
-ユーザー名.github.io
-それ以外なら
-ユーザー名.github.io/リポジトリ名
-でアクセスできます
-次にGoogle DomainsのリンクとGithub pagesを紐づけます DNSの設定からカスタムレコードを作成します
-タイプはCNAMEにしましょう
-CNAMEの場合ホスト名を決める必要があるので、wwwとかにすると良いと思います
-データにはgithub pagesのURLを入力しておきます
-ここまで設定したらまたgithub pagesの設定画面へ戻りましょう Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
-少し待てばGoogle Domainsで取得したドメインにアクセスするとgithub pagesが見られるようになるはずです！
-次にHugoを用いてブログを作っていきます
-Hugoのインストール 今回はWindowsでインストールを行います
-まず本体をこちらからダウンロードします
-Windowsを使用していて64bit版なら
-hugo_0.96.0_Windows-64bit.zip
-をダウンロードして解凍しましょう
-出てきた実行ファイルにはPATHを通しておきましょう
-envと検索し、環境変数を編集を開きます
-そうしたら上の通り
- ユーザー環境変数のPathを選択 編集(E)…をクリック 新規(N)…をクリック hugoの実行ファイルがあるフォルダを入力  を行いましょう
-実行ファイル自体ではなくて、実行ファイルのあるフォルダなので注意してください
-最後にOKを押して閉じましょう
-ここまで終わったらPowerShellを開き
-hugo と入力してみましょう 上記のような結果になればOKです
- 用語 &lsquo;hugo&rsquo; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。</div>
           </div>
         </a>
       </article>

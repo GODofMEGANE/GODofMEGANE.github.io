@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>PC - GODofMEGANE&#39;s Blog</title>
+    <title>Arduino - GODofMEGANE&#39;s Blog</title>
     <meta name="pinterest" content="nopin">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com"  crossorigin>
@@ -14,13 +14,13 @@
 <link rel="apple-touch-icon" href="http://godofmegane.github.io/images/logo.png">
 
 
-<link rel="alternate" type="application/rss+xml" href="http://godofmegane.github.io/tags/pc/index.xml" title="GODofMEGANE&#39;s Blog">
+<link rel="alternate" type="application/rss+xml" href="http://godofmegane.github.io/tags/arduino/index.xml" title="GODofMEGANE&#39;s Blog">
 
 
 
     
 
-    <link rel="canonical" href="http://godofmegane.github.io/tags/pc/">
+    <link rel="canonical" href="http://godofmegane.github.io/tags/arduino/">
 
     
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
@@ -553,7 +553,7 @@ section.footer {
           
 
 <header class="page-title">
-  <h1 class="title">PC</h1>
+  <h1 class="title">Arduino</h1>
 </header>
 
 
@@ -593,99 +593,6 @@ C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libr
 検証は通るが書き込みができなくなります
 ESP32が書き込みモードになっていないことが原因です
 Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます</div>
-          </div>
-        </a>
-      </article>
-    </div>
-    
-    <div class="mcol c6">
-      <article class="li">
-        <a href="http://godofmegane.github.io/posts/forge_modding_tutorial_20220521-192238/">
-          <div class="thumb thumb-500c26134d650abf1f11d9d200271e53"></div>
-
-          <div class="inner">
-            <h2 class="title">Minecraft ForgeのModを作る</h2>
-
-            <ul class="facts">
-              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2022-05-21T19:22:39JST">2022/05/21</time></li>
-              <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
-              
-              
-            </ul>
-
-            <div class="summary">MinecraftのModdingを始めるにあたり色々と詰まった場所が多かったので忘備録です
-環境構築については記事が溢れているのでコーディング関連のみメモっときます
-1.8.9で作ったのでそれ以外だとちょっと違うかもです
-LOGの出力 public static final Logger logger = LogManager.getLogger(ExampleMod.MODID);ExampleMod.logger.info(&#34;HelloWorld&#34;); infoの他にもdebug，warn，error，fatal等が使えるらしいです
-出力されるLOGはマイクラのランチャーの設定から，出力ログを開くを有効にしておくと確認できます
-Event関連 チャットを受け取った時に実行する関数みたいなのを作る場合はSubScribeEventというものを使います
-まずinit関数の中にMinecraftForge.EVENT_BUS.register(this);と書いておきます
-そして例えばチャットを受け取った際に実行される関数の場合，
-@SubscribeEventpublic void onChat(final ClientChatReceivedEvent event){} のようにすることでイベントを登録することができます
-イベントは引数で決まっているので関数名は何でもOKです
-この際に引数になっているevent変数からイベントによって色々な引数を取ることができます
-onChat関数の場合，event.message.getUnformattedText()でチャットの内容が取れたりします
-イベントはnet.minecraftforge.eventパッケージに入っています
-調べた感じイベントを纏めてるサイトは無かったのでその都度調べるほうがいいかもです
-難読化 ゲームから情報を取りたい!みたいになった時に，ゲーム内のクラスが難読化されていてとてもわかりずらいです
-例えばホットバーの上に出てくる文字列を取得する場合は
-(String) ReflectionHelper.findField(GuiIngame.class, &#34;recordPlaying&#34;, &#34;field_73838_g&#34;).get(Minecraft.getMinecraft().ingameGUI); みたいになります
-この中のfield_73838_gが難読化されたクラス名です
-ここに纏められています
-レンダリング 文字列のレンダリングは以下のようにするとできます
-public void renderOverlay(RenderGameOverlayEvent event) {FontRenderer fRender = Minecraft.getMinecraft().fontRendererObj;fRender.drawStringWithShadow(&#34;HelloWorld&#34;, 5, 10, 0);} drawStringWithShadowの引数は文字列，x，y，color(RGBを10進数に変換)です
-しかしこのままだとHPの部分とかが凄い色になったりしてヤバくなります
-解決策は
-public void renderOverlay(RenderGameOverlayEvent.Post event) {if(event.type == RenderGameOverlayEvent.ElementType.ALL){FontRenderer fRender = Minecraft.</div>
-          </div>
-        </a>
-      </article>
-    </div>
-    
-    <div class="mcol c6">
-      <article class="li">
-        <a href="http://godofmegane.github.io/posts/start_hugo_20220410-132021/">
-          <div class="thumb thumb-2ae8bca683562a56eb8602553d481b50"></div>
-
-          <div class="inner">
-            <h2 class="title">Github pages&#43;Hugoでブログ作ってみた</h2>
-
-            <ul class="facts">
-              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2022-04-10T13:20:22JST">2022/04/10</time></li>
-              <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
-              
-              
-            </ul>
-
-            <div class="summary">前からGODofMEGANE.github.ioでブログっぽいことをしようと思ってましたが、最近godofmegane.comドメインを買ったのでブログ作ってみました
-Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
-確認のために適当にhtmlファイルを作ってpushしてみるといいと思います
-リポジトリ名が ユーザー名.github.io なら
-ユーザー名.github.io
-それ以外なら
-ユーザー名.github.io/リポジトリ名
-でアクセスできます
-次にGoogle DomainsのリンクとGithub pagesを紐づけます DNSの設定からカスタムレコードを作成します
-タイプはCNAMEにしましょう
-CNAMEの場合ホスト名を決める必要があるので、wwwとかにすると良いと思います
-データにはgithub pagesのURLを入力しておきます
-ここまで設定したらまたgithub pagesの設定画面へ戻りましょう Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
-少し待てばGoogle Domainsで取得したドメインにアクセスするとgithub pagesが見られるようになるはずです！
-次にHugoを用いてブログを作っていきます
-Hugoのインストール 今回はWindowsでインストールを行います
-まず本体をこちらからダウンロードします
-Windowsを使用していて64bit版なら
-hugo_0.96.0_Windows-64bit.zip
-をダウンロードして解凍しましょう
-出てきた実行ファイルにはPATHを通しておきましょう
-envと検索し、環境変数を編集を開きます
-そうしたら上の通り
- ユーザー環境変数のPathを選択 編集(E)…をクリック 新規(N)…をクリック hugoの実行ファイルがあるフォルダを入力  を行いましょう
-実行ファイル自体ではなくて、実行ファイルのあるフォルダなので注意してください
-最後にOKを押して閉じましょう
-ここまで終わったらPowerShellを開き
-hugo と入力してみましょう 上記のような結果になればOKです
- 用語 &lsquo;hugo&rsquo; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。</div>
           </div>
         </a>
       </article>
