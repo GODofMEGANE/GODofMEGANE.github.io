@@ -30,7 +30,16 @@ C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libr
 という表示が出た後に上記エラーが吐かれて止まります
 検証は通るが書き込みができなくなります
 ESP32が書き込みモードになっていないことが原因です
-Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます">
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます
+ Wifi接続エラー Wi-Fi Connection Failed! ※esp32-nittc201018.hを使っている人(東京高専生)限定
+SSIDとパスワードが合っているはずなのにWifiが接続されないバグです
+これはライブラリ内の処理に問題があります
+esp32-nittc201018.hのWifi接続部分では一定時間Wifiにつながらなかった場合にWifi接続を初期化(再度WiFi.beginを行う)するようになっています
+しかし初期状態だと再接続までの時間が短すぎる為，接続を試みている最中なのに接続を切ってしまいます
+そのため，いつまでも接続が出来ずエラーが出ているようです
+解決策としてはesp32-nittc201018.hの579行目にあるif(i%8==0)という部分の回数をもう少し増やしてみてください
+私の環境では25回程度で接続できたので，50回程度が良いと思います
+もし50回にするならif(i%50==0)と変更してください">
 
 <meta property="og:title" content="esp32で出たエラーまとめ - GODofMEGANE&#39;s Blog">
 <meta property="og:type" content="article">
@@ -50,7 +59,16 @@ C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libr
 という表示が出た後に上記エラーが吐かれて止まります
 検証は通るが書き込みができなくなります
 ESP32が書き込みモードになっていないことが原因です
-Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます">
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます
+ Wifi接続エラー Wi-Fi Connection Failed! ※esp32-nittc201018.hを使っている人(東京高専生)限定
+SSIDとパスワードが合っているはずなのにWifiが接続されないバグです
+これはライブラリ内の処理に問題があります
+esp32-nittc201018.hのWifi接続部分では一定時間Wifiにつながらなかった場合にWifi接続を初期化(再度WiFi.beginを行う)するようになっています
+しかし初期状態だと再接続までの時間が短すぎる為，接続を試みている最中なのに接続を切ってしまいます
+そのため，いつまでも接続が出来ずエラーが出ているようです
+解決策としてはesp32-nittc201018.hの579行目にあるif(i%8==0)という部分の回数をもう少し増やしてみてください
+私の環境では25回程度で接続できたので，50回程度が良いと思います
+もし50回にするならif(i%50==0)と変更してください">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
@@ -70,7 +88,16 @@ C:\Users\XXXXXX\AppData\Local\Arduino15\packages\esp32\hardware\esp32\1.0.6\libr
 という表示が出た後に上記エラーが吐かれて止まります
 検証は通るが書き込みができなくなります
 ESP32が書き込みモードになっていないことが原因です
-Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます">
+Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます
+ Wifi接続エラー Wi-Fi Connection Failed! ※esp32-nittc201018.hを使っている人(東京高専生)限定
+SSIDとパスワードが合っているはずなのにWifiが接続されないバグです
+これはライブラリ内の処理に問題があります
+esp32-nittc201018.hのWifi接続部分では一定時間Wifiにつながらなかった場合にWifi接続を初期化(再度WiFi.beginを行う)するようになっています
+しかし初期状態だと再接続までの時間が短すぎる為，接続を試みている最中なのに接続を切ってしまいます
+そのため，いつまでも接続が出来ずエラーが出ているようです
+解決策としてはesp32-nittc201018.hの579行目にあるif(i%8==0)という部分の回数をもう少し増やしてみてください
+私の環境では25回程度で接続できたので，50回程度が良いと思います
+もし50回にするならif(i%50==0)と変更してください">
 <meta name="twitter:image" content="http://godofmegane.github.io/images/default.png">
 
 
@@ -90,7 +117,7 @@ Connectingが表示されてから，RESETボタンを押してからすぐにIS
       "width": 800
     },
     "datePublished": "2022-10-15T15:33:10JST",
-    "dateModified": "2022-10-15T15:33:10JST",
+    "dateModified": "2022-10-15T16:08:51JST",
     "author": {
       "@type": "Person",
       "name": "GODofMEGANE's Blog"
@@ -105,7 +132,7 @@ Connectingが表示されてから，RESETボタンを押してからすぐにIS
         "height": 60
       }
     },
-    "description": "自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ\n東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです\n ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました\r使用済：C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\libraries\\SD\r未使用：C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\SD IDEのバージョンを上げたところ発生しました\nこの場合，C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\librariesにあるSDフォルダを削除してください\n ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!\nその場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます\n  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです\nC:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\SDを削除したところ発生しました\n削除したSDフォルダを復元し，C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\librariesにある別のSDフォルダを削除し直してください\n 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....\nという表示が出た後に上記エラーが吐かれて止まります\n検証は通るが書き込みができなくなります\nESP32が書き込みモードになっていないことが原因です\nConnectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます"
+    "description": "自分がArduino IDE 2.0に移行した際にESP32へ書き込むと色々とエラーが出てしまったので備忘録としてメモ\n東京高専で使用しているESP32ボードを使っているので東京高専生以外はあまり参考にならないかもです\n ライブラリ多重化 「SD.h」に対して複数のライブラリが見つかりました\r使用済：C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\libraries\\SD\r未使用：C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\SD IDEのバージョンを上げたところ発生しました\nこの場合，C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\librariesにあるSDフォルダを削除してください\n ちなみにこのエラーは通常開発時にも良く出るのですが，ほとんどの場合はこのエラーが原因ではないので注意です!\nその場合はこのエラーの少し上までスクロールすることで本来のエラーメッセージを見ることができます\n  ライブラリ多重化2 #error Architecture or board not supported. SD.hエラーの後半部分が消えたエラーメッセージです\nC:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\SDを削除したところ発生しました\n削除したSDフォルダを復元し，C:\\Users\\XXXXXX\\AppData\\Local\\Arduino15\\librariesにある別のSDフォルダを削除し直してください\n 書き込みエラー esp32: timed out waiting for packet header Failed to connect to ESP32: Invalid head of packet (0x2E) Connecting........_____....._____....._____....._____....._____.....\nという表示が出た後に上記エラーが吐かれて止まります\n検証は通るが書き込みができなくなります\nESP32が書き込みモードになっていないことが原因です\nConnectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます\n Wifi接続エラー Wi-Fi Connection Failed! ※esp32-nittc201018.hを使っている人(東京高専生)限定\nSSIDとパスワードが合っているはずなのにWifiが接続されないバグです\nこれはライブラリ内の処理に問題があります\nesp32-nittc201018.hのWifi接続部分では一定時間Wifiにつながらなかった場合にWifi接続を初期化(再度WiFi.beginを行う)するようになっています\nしかし初期状態だと再接続までの時間が短すぎる為，接続を試みている最中なのに接続を切ってしまいます\nそのため，いつまでも接続が出来ずエラーが出ているようです\n解決策としてはesp32-nittc201018.hの579行目にあるif(i%8==0)という部分の回数をもう少し増やしてみてください\n私の環境では25回程度で接続できたので，50回程度が良いと思います\nもし50回にするならif(i%50==0)と変更してください"
   }
 </script>
 
@@ -652,6 +679,8 @@ section.footer {
     <ul class="facts">
       <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2022-10-15T15:33:10JST">2022/10/15</time></li>
       
+      <li><i class="fas fa-sync" aria-hidden="true"></i><time datetime="2022-10-15T16:08:51JST">2022/10/15</time></li>
+      
       
       <li><i class="fas fa-bookmark" aria-hidden="true"></i><a href="http://godofmegane.github.io/posts/">POSTS</a></li>
       
@@ -699,6 +728,18 @@ section.footer {
 検証は通るが書き込みができなくなります<br>
 ESP32が書き込みモードになっていないことが原因です<br>
 Connectingが表示されてから，RESETボタンを押してからすぐにISPボタンを押すことで書き込みモードに移行できます</p>
+<hr>
+<h1 id="wifi接続エラー">Wifi接続エラー</h1>
+<pre tabindex="0"><code>Wi-Fi Connection Failed!
+</code></pre><p>※esp32-nittc201018.hを使っている人(東京高専生)限定<br>
+SSIDとパスワードが合っているはずなのにWifiが接続されないバグです<br>
+これはライブラリ内の処理に問題があります<br>
+esp32-nittc201018.hのWifi接続部分では一定時間Wifiにつながらなかった場合にWifi接続を初期化(再度WiFi.beginを行う)するようになっています<br>
+しかし初期状態だと再接続までの時間が短すぎる為，接続を試みている最中なのに接続を切ってしまいます<br>
+そのため，いつまでも接続が出来ずエラーが出ているようです<br>
+解決策としてはesp32-nittc201018.hの579行目にある<code>if(i%8==0)</code>という部分の回数をもう少し増やしてみてください<br>
+私の環境では25回程度で接続できたので，50回程度が良いと思います<br>
+もし50回にするなら<code>if(i%50==0)</code>と変更してください</p>
 </div>
 
   <footer class="article-footer">
