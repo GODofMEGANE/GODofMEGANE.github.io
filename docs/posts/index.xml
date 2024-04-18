@@ -6,7 +6,28 @@
     <description>Recent content in Posts on GODofMEGANE&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 15 Oct 2022 15:33:10 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Apr 2024 08:41:39 +0900</lastBuildDate><atom:link href="http://godofmegane.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Aceで Unexpected token &#39;&lt;&#39; が表示される</title>
+      <link>http://godofmegane.github.io/posts/reactace-error_20240418-083101/</link>
+      <pubDate>Thu, 18 Apr 2024 08:41:39 +0900</pubDate>
+      
+      <guid>http://godofmegane.github.io/posts/reactace-error_20240418-083101/</guid>
+      <description>React Aceでテキストエディタを使用しようと思ったらブラウザで開いた際にUnexpected token &#39;&amp;lt;&#39;...が発生した
+ブラウザ側でリロードした時に発生する、コードを保存した時のホットリロードでは発生しない
+エラーが発生しているファイルを見てみるとどうやらHTMLファイルをjavascriptとして読み込もうとしているらしい
+解決策1 &amp;lt;base href=&amp;quot;/&amp;quot; /&amp;gt;をpublic/index.htmlの&amp;lt;head&amp;gt;に追加してみた
+こことかを参考にやってみた
+結果、変わらず
+解決策2 babel関連をインストールしてみる
+webpack.config.jsが無いのでnpm run ejectとかもしてみるが色々やってもエラーは変わらず
+解決策3(これで解決した) 突然別のエラーが発生した
+Refused to execute script from &amp;#39;http://localhost:3000/project-name/static/js/worker-javascript.js&amp;#39; because its MIME type (&amp;#39;text/html&amp;#39;) is not executable. またエディタ側で以下のエラーが発生するようになった
+Failed to parse source map from &amp;#39;data:application/json;base64,&amp;#39;: SyntaxError: Unexpected end of JSON input ただのWarningらしく普通に実行できるがブラウザ側のエラーは今までのと合わせて消えてない
+そこでApp.tsxに以下の行を追加した
+import &amp;#34;ace-builds/webpack-resolver&amp;#34;; 結果今までのエラーも一緒に消えた</description>
+    </item>
+    
     <item>
       <title>esp32で出たエラーまとめ</title>
       <link>http://godofmegane.github.io/posts/esp32-setup_20221015-153309/</link>
@@ -77,18 +98,18 @@ public void renderOverlay(RenderGameOverlayEvent.Post event) {if(event.type == 
       
       <guid>http://godofmegane.github.io/posts/start_hugo_20220410-132021/</guid>
       <description>前からGODofMEGANE.github.ioでブログっぽいことをしようと思ってましたが、最近godofmegane.comドメインを買ったのでブログ作ってみました
-Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
+Github pagesとGoogle Domainsの設定 まずはGithubで空リポジトリを作成し、pagesの設定を行います この画面でNoneと書かれている場面を設定したいブランチにしてディレクトリを選べば簡単にホームページが作れます
 確認のために適当にhtmlファイルを作ってpushしてみるといいと思います
 リポジトリ名が ユーザー名.github.io なら
 ユーザー名.github.io
 それ以外なら
 ユーザー名.github.io/リポジトリ名
 でアクセスできます
-次にGoogle DomainsのリンクとGithub pagesを紐づけます DNSの設定からカスタムレコードを作成します
+次にGoogle DomainsのリンクとGithub pagesを紐づけます DNSの設定からカスタムレコードを作成します
 タイプはCNAMEにしましょう
 CNAMEの場合ホスト名を決める必要があるので、wwwとかにすると良いと思います
 データにはgithub pagesのURLを入力しておきます
-ここまで設定したらまたgithub pagesの設定画面へ戻りましょう Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
+ここまで設定したらまたgithub pagesの設定画面へ戻りましょう Custom domainの欄にGoogle Domainsで取得したドメインを入力し、Saveをクリックします
 少し待てばGoogle Domainsで取得したドメインにアクセスするとgithub pagesが見られるようになるはずです！
 次にHugoを用いてブログを作っていきます
 Hugoのインストール 今回はWindowsでインストールを行います
@@ -98,13 +119,12 @@ hugo_0.96.0_Windows-64bit.zip
 をダウンロードして解凍しましょう
 出てきた実行ファイルにはPATHを通しておきましょう
 envと検索し、環境変数を編集を開きます
-そうしたら上の通り
+そうしたら上の通り
  ユーザー環境変数のPathを選択 編集(E)…をクリック 新規(N)…をクリック hugoの実行ファイルがあるフォルダを入力  を行いましょう
 実行ファイル自体ではなくて、実行ファイルのあるフォルダなので注意してください
 最後にOKを押して閉じましょう
 ここまで終わったらPowerShellを開き
-hugo と入力してみましょう 上記のような結果になればOKです
- 用語 &amp;lsquo;hugo&amp;rsquo; は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。</description>
+hugo と入力してみましょう 上記のような結果になればOKです</description>
     </item>
     
   </channel>

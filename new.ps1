@@ -7,3 +7,4 @@ New-Item ./static/images/$($slug)_$($time) -ItemType Directory
 Start-Process -FilePath ./content/posts/$($slug)_$($time).md
 start 'C:\Program Files\Google\Chrome\Application\chrome.exe' 'http://localhost:1313/'
 hugo server
+pause

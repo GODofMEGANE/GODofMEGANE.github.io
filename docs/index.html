@@ -517,6 +517,8 @@ section.footer {
 
   
 
+  
+
 
 
 
@@ -559,6 +561,39 @@ section.footer {
     
     
     
+    
+    <div class="mcol c6">
+      <article class="li">
+        <a href="http://godofmegane.github.io/posts/reactace-error_20240418-083101/">
+          <div class="thumb thumb-1bf378c007a27f8616fc1e0c542c3607"></div>
+
+          <div class="inner">
+            <h2 class="title">React Aceで Unexpected token &#39;&lt;&#39; が表示される</h2>
+
+            <ul class="facts">
+              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="2024-04-18T08:41:39JST">2024/04/18</time></li>
+              <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+              
+              
+            </ul>
+
+            <div class="summary">React Aceでテキストエディタを使用しようと思ったらブラウザで開いた際にUnexpected token '&lt;'...が発生した
+ブラウザ側でリロードした時に発生する、コードを保存した時のホットリロードでは発生しない
+エラーが発生しているファイルを見てみるとどうやらHTMLファイルをjavascriptとして読み込もうとしているらしい
+解決策1 &lt;base href=&quot;/&quot; /&gt;をpublic/index.htmlの&lt;head&gt;に追加してみた
+こことかを参考にやってみた
+結果、変わらず
+解決策2 babel関連をインストールしてみる
+webpack.config.jsが無いのでnpm run ejectとかもしてみるが色々やってもエラーは変わらず
+解決策3(これで解決した) 突然別のエラーが発生した
+Refused to execute script from &#39;http://localhost:3000/project-name/static/js/worker-javascript.js&#39; because its MIME type (&#39;text/html&#39;) is not executable. またエディタ側で以下のエラーが発生するようになった
+Failed to parse source map from &#39;data:application/json;base64,&#39;: SyntaxError: Unexpected end of JSON input ただのWarningらしく普通に実行できるがブラウザ側のエラーは今までのと合わせて消えてない
+そこでApp.tsxに以下の行を追加した
+import &#34;ace-builds/webpack-resolver&#34;; 結果今までのエラーも一緒に消えた</div>
+          </div>
+        </a>
+      </article>
+    </div>
     
     <div class="mcol c6">
       <article class="li">
@@ -712,6 +747,27 @@ hugo と入力してみましょう 上記のような結果になればOKで�
   <div class="articles sm">
     
     <article class="lism">
+  <a href="http://godofmegane.github.io/posts/reactace-error_20240418-083101/">
+    <div class="thumb thumb-1bf378c007a27f8616fc1e0c542c3607"></div>
+
+    <div class="inner">
+      <div class="title">React Aceで Unexpected token &#39;&lt;&#39; が表示される</div>
+
+      <ul class="facts sm">
+        <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="18007-04-18T08:41:39JST">2024/04/18</time></li>
+        
+        <li><i class="fas fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+        
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+    
+    <article class="lism">
   <a href="http://godofmegane.github.io/posts/esp32-setup_20221015-153309/">
     <div class="thumb thumb-b1fa189a0029cf7a605f2023448d1236"></div>
 
@@ -782,7 +838,7 @@ hugo と入力してみましょう 上記のような結果になればOKで�
   <header>CATEGORIES</header>
   <ul class="terms">
     
-    <li><a href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3">pc関連 <span class="count">(3)</span></a></li>
+    <li><a href="http://godofmegane.github.io/categories/pc%E9%96%A2%E9%80%A3">pc関連 <span class="count">(4)</span></a></li>
     
   </ul>
 </section>
@@ -794,7 +850,9 @@ hugo と入力してみましょう 上記のような結果になればOKで�
   <header>TAGS</header>
   <ul class="terms">
     
-    <li><a href="http://godofmegane.github.io/tags/pc">pc <span class="count">(3)</span></a></li>
+    <li><a href="http://godofmegane.github.io/tags/pc">pc <span class="count">(4)</span></a></li>
+    
+    <li><a href="http://godofmegane.github.io/tags/web">web <span class="count">(2)</span></a></li>
     
     <li><a href="http://godofmegane.github.io/tags/arduino">arduino <span class="count">(1)</span></a></li>
     
@@ -802,7 +860,7 @@ hugo と入力してみましょう 上記のような結果になればOKで�
     
     <li><a href="http://godofmegane.github.io/tags/minecraft">minecraft <span class="count">(1)</span></a></li>
     
-    <li><a href="http://godofmegane.github.io/tags/web">web <span class="count">(1)</span></a></li>
+    <li><a href="http://godofmegane.github.io/tags/react">react <span class="count">(1)</span></a></li>
     
   </ul>
 </section>
